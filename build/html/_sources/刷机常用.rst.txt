@@ -1,0 +1,59 @@
+刷机相关命令
+============
+
+重启到 Recovery 模式
+-------------------------
+
+命令：
+
+```sh
+adb reboot recovery
+```
+
+从 Recovery 重启到 Android
+---------------------------
+命令：
+
+```sh
+adb reboot
+```
+
+重启到 Fastboot 模式
+---------------------------
+命令：
+
+```
+adb reboot bootloader
+```
+
+通过 sideload 更新系统
+---------------------------
+如果我们下载了 Android 设备对应的系统更新包到电脑上，那么也可以通过 adb 来完成更新。
+
+以 Recovery 模式下更新为例：
+
+1. 重启到 Recovery 模式。
+
+   命令：
+
+   ```
+   adb reboot recovery
+   ```
+
+2. 在设备的 Recovery 界面上操作进入 `Apply update`-`Apply from ADB`。
+
+   注：不同的 Recovery 菜单可能与此有差异，有的是一级菜单就有 `Apply update from ADB`。
+
+3. 通过 adb 上传和更新系统。
+
+   命令：
+
+   ```
+   adb sideload <path-to-update.zip>
+   ```
+
+4.刷机常用的两个网站。
+
+基于Android移动平台的，适用于各种设备的免费开源操作系统: https://lineageos.org/ 
+
+opengapps: https://opengapps.org/

@@ -1,0 +1,286 @@
+查看日志
+============
+
+Android 系统的日志分为两部分，底层的 Linux 内核日志输出到 /proc/kmsg，Android 的日志输出到 /dev/log。
+
+Android 日志
+--------------
+
+=================================== =========================================================================================================================================================
+选项                                说明
+=================================== =========================================================================================================================================================
+-b <buffer>                         加载可供查看的备用日志缓冲区，例如 events 或 radio。默认使用 main、system 和 crash 缓冲区集。请参阅查看备用日志缓冲区。
+-c, --clear                         清除（清空）所选的缓冲区并退出。默认缓冲区集为 main、system 和 crash。要清除所有缓冲区，请使用 -b all -c。
+-e <expr>, --regex=<expr>             只输出日志消息与 <expr> 匹配的行，其中 <expr> 是一个正则表达式。
+-m <count>, --max-count=<count>         输出 <count> 行后退出。这样是为了与 --regex 配对，但可以独立运行。
+--print     与 --regex 和 --max-count   配对，使内容绕过正则表达式过滤器，但仍能够在获得适当数量的匹配时停止。
+-d                                    将日志转储到屏幕并退出。
+-f <filename>                         将日志消息输出写入 <filename>。默认值为 stdout。
+-g, --buffer-size                 输出指定日志缓冲区的大小并退出。
+-n <count>                          将轮替日志的数量上限设置为 <count>。默认值为 4。需要使用 -r 选项。
+-r <kbytes>                         每输出 <kbytes> 时轮替日志文件。默认值为 16。需要使用 -f 选项。
+-s                                    相当于过滤器表达式 \*:S 它将所有标记的优先级设为“静默”，并用于放在可添加内容的过滤器表达式列表之前。要了解详情，请转到有关过滤日志输出的部分。
+-v <format>                         设置日志消息的输出格式。默认格式为 threadtime。有关支持的格式列表，请参阅介绍控制日志输出格式的部分。
+-D, --dividers                        输出各个日志缓冲区之间的分隔线。
+-c                                    清空（清除）整个日志并退出。
+-t <count>                          仅输出最新的行数。此选项包括 -d 功能。
+-t '<time>'                         输出自指定时间以来的最新行。此选项包括 -d 功能。如需了解如何引用带有嵌入空格的参数，请参阅 -P 选项。
+-T <count>                          输出自指定时间以来的最新行数。此选项不包括 -d 功能。
+-T '<time>'                         输出自指定时间以来的最新行。此选项不包括 -d 功能。如需了解如何引用带有嵌入空格的参数，请参阅 -P 选项。
+-L, -last                           在最后一次重新启动之前转储日志。
+-B, --binary                          以二进制文件形式输出日志。
+-S, --statistics                    在输出中包含统计信息，以帮助您识别和定位日志垃圾信息发送者。
+-G <size>                           设置日志环形缓冲区的大小。可以在结尾处添加 K 或 M，以指示单位为千字节或兆字节。
+-p, --prune                         输出（读取）当前的白名单和黑名单，不采用任何参数，如下所示：
+=================================== =========================================================================================================================================================
+
+命令格式：
+
+```
+[adb] logcat [<option>] ... [<filter-spec>] ...
+```
+
+常用用法列举如下：
+
+按级别过滤日志
+--------------
+
+Android 的日志分为如下几个优先级（priority）：
+
+* V —— Verbose（最低，输出得最多）
+* D —— Debug
+* I —— Info
+* W —— Warning
+* E —— Error
+* F —— Fatal
+* S —— Silent（最高，啥也不输出）
+
+按某级别过滤日志则会将该级别及以上的日志输出。
+
+比如，命令：
+
+```
+adb logcat *:W
+```
+
+会将 Warning、Error、Fatal 和 Silent 日志输出。
+
+（**注：** 在 macOS 下需要给 `*:W` 这样以 `*` 作为 tag 的参数加双引号，如 `adb logcat "*:W"`，不然会报错 `no matches found: *:W`。）
+
+按 tag 和级别过滤日志
+---------------------
+
+`<filter-spec>` 可以由多个 `<tag>[:priority]` 组成。
+
+比如，命令：
+
+```
+adb logcat ActivityManager:I MyApp:D *:S
+```
+
+表示输出 tag `ActivityManager` 的 Info 以上级别日志，输出 tag `MyApp` 的 Debug 以上级别日志，及其它 tag 的 Silent 级别日志（即屏蔽其它 tag 日志）。
+
+日志格式
+--------------
+
+可以用 `adb logcat -v <format>` 选项指定日志输出格式。
+
+日志支持按以下几种 `<format>`：
+
+* brief
+
+  默认格式。格式为：
+
+  ```
+  <priority>/<tag>(<pid>): <message>
+  ```
+
+  示例：
+
+  ```
+  D/HeadsetStateMachine( 1785): Disconnected process message: 10, size: 0
+  ```
+
+* process
+
+  格式为：
+
+  ```
+  <priority>(<pid>) <message>
+  ```
+
+  示例：
+
+  ```
+  D( 1785) Disconnected process message: 10, size: 0  (HeadsetStateMachine)
+  ```
+
+* tag
+
+  格式为：
+
+  ```
+  <priority>/<tag>: <message>
+  ```
+
+  示例：
+
+  ```
+  D/HeadsetStateMachine: Disconnected process message: 10, size: 0
+  ```
+
+* raw
+
+  格式为：
+
+  ```
+  <message>
+  ```
+
+  示例：
+
+  ```
+  Disconnected process message: 10, size: 0
+  ```
+
+* time
+
+  格式为：
+
+  ```
+  <datetime> <priority>/<tag>(<pid>): <message>
+  ```
+
+  示例：
+
+  ```
+  08-28 22:39:39.974 D/HeadsetStateMachine( 1785): Disconnected process message: 10, size: 0
+  ```
+
+* threadtime
+
+  格式为：
+
+  ```
+  <datetime> <pid> <tid> <priority> <tag>: <message>
+  ```
+
+  示例：
+
+  ```
+  08-28 22:39:39.974  1785  1832 D HeadsetStateMachine: Disconnected process message: 10, size: 0
+  ```
+
+* long
+
+  格式为：
+
+  ```
+  [ <datetime> <pid>:<tid> <priority>/<tag> ]
+  <message>
+  ```
+
+  示例：
+
+  ```
+  [ 08-28 22:39:39.974  1785: 1832 D/HeadsetStateMachine ]
+  Disconnected process message: 10, size: 0
+  ```
+
+指定格式可与上面的过滤同时使用。比如：
+
+```
+adb logcat -v long ActivityManager:I *:S
+```
+
+格式修饰符依据以下一个或多个修饰符的任意组合更改 Logcat 输出。要指定格式修饰符，请使用 -v 选项，如下所示：
+
+```
+adb logcat -b all -v color -d
+```
+
+每个 Android 日志消息都有一个与之相关联的标记和优先级。 您可以将任何格式修饰符与以下任一格式选项进行组合：brief、long、process、raw、tag、thread、threadtime 和 time。
+
+您可以通过在命令行中输入 logcat -v --help 获取格式修饰符详细信息。
+
+.. code-block:: bash
+
+      color：使用不同的颜色来显示每个优先级。
+      descriptive：显示日志缓冲区事件说明。此修饰符仅影响事件日志缓冲区消息，不会对其他非二进制文件缓冲区产生任何影响。事件说明取自 event-log-tags 数据库。
+      epoch：显示自 1970 年 1 月 1 日以来的时间（以秒为单位）。
+      monotonic：显示自上次启动以来的时间（以 CPU 秒为单位）。
+      printable：确保所有二进制日志记录内容都进行了转义。
+      uid：如果访问控制允许，则显示 UID 或记录的进程的 Android ID。
+      usec：显示精确到微秒的时间。
+      UTC：显示 UTC 时间。
+      year：将年份添加到显示的时间。
+      zone：将本地时区添加到显示的时间。
+
+**请注意，如果用windows控制台修改输出颜色是不会起作用的**
+
+清空日志
+--------------
+
+```
+adb logcat -c
+```
+
+内核日志
+--------------
+
+命令：
+
+```
+adb shell dmesg
+```
+
+输出示例：
+
+.. code-block:: bash
+
+      <6>[14201.684016] PM: noirq resume of devices complete after 0.982 msecs
+      <6>[14201.685525] PM: early resume of devices complete after 0.838 msecs
+      <6>[14201.753642] PM: resume of devices complete after 68.106 msecs
+      <4>[14201.755954] Restarting tasks ... done.
+      <6>[14201.771229] PM: suspend exit 2016-08-28 13:31:32.679217193 UTC
+      <6>[14201.872373] PM: suspend entry 2016-08-28 13:31:32.780363596 UTC
+      <6>[14201.872498] PM: Syncing filesystems ... done.
+
+
+中括号里的 `[14201.684016]` 代表内核开始启动后的时间，单位为秒。
+
+通过内核日志我们可以做一些事情，比如衡量内核启动时间，在系统启动完毕后的内核日志里找到 `Freeing init memory` 那一行前面的时间就是。
+
+
+查看备用日志缓冲区
+-----------------
+Android 日志记录系统为日志消息保留了多个环形缓冲区，而且并非所有的日志消息都会发送到默认的环形缓冲区。要查看其他日志消息，您可以使用 -b 选项运行 logcat 命令，以请求查看备用的环形缓冲区。您可以查看下列任意备用缓冲区
+
+.. code-block:: bash
+      
+      radio：查看包含无线装置/电话相关消息的缓冲区。
+      events：查看已经过解译的二进制系统事件缓冲区消息。
+      main：查看主日志缓冲区（默认），不包含系统和崩溃日志消息。
+      system：查看系统日志缓冲区（默认）。
+      crash：查看崩溃日志缓冲区（默认）。
+      all：查看所有缓冲区。
+      default：报告 main、system 和 crash 缓冲区。
+
+
+以下示例显示了如何查看包含无线装置和电话相关消息的日志缓冲区。
+
+```
+adb logcat -b radio
+```
+
+也可以为要输出的所有缓冲区指定多个 -b 标记，如下所示：
+
+```
+logcat -b main -b radio -b events
+```
+
+您可以指定一个 -b 标记，后跟缓冲区逗号分隔列表，例如：
+
+```
+logcat -b main,radio,events
+```

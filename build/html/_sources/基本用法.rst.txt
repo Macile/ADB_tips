@@ -1,0 +1,123 @@
+基本用法
+===============================
+
+
+
+
+命令语法
+------------
+adb 命令的基本语法如下：
+
+```
+adb [-d|-e|-s <serialNumber>] <command>
+```
+
+为命令指定目标设备
+------------
+如果有多个设备/模拟器连接，则需要为命令指定目标设备。
+
+
+======================== ======================================================
+参数                        含义
+======================== ======================================================
+-d                        指定当前唯一通过 USB 连接的 Android 设备为命令目标
+-e                        指定当前唯一运行的模拟器为命令目标
+-s <serialNumber>         指定相应 serialNumber 号的设备/模拟器为命令目标
+======================== ======================================================
+
+
+
+在多个设备/模拟器连接的情况下较常用的是 `-s <serialNumber>` 参数，serialNumber 可以通过 `adb devices` 命令获取。如：
+
+
+.. code-block:: bash
+
+
+    $ adb devices
+    List of devices attached
+    cf264b8f  device
+    emulator-5554 device
+    10.129.164.6:5555 device
+
+
+输出里的 `cf264b8f`、`emulator-5554` 和 `10.129.164.6:5555` 即为 serialNumber。
+
+比如这时想指定 `cf264b8f` 这个设备来运行 adb 命令获取屏幕分辨率：
+
+```
+adb -s cf264b8f shell wm size
+```
+
+又如想给 `10.129.164.6:5555` 这个设备安装应用（*这种形式的 serialNumber 格式为 `<IP>:<Port>`，一般为无线连接的设备或 Genymotion 等第三方 Android 模拟器*）：
+
+```
+adb -s 10.129.164.6:5555 install test.apk
+```
+
+**遇到多设备/模拟器的情况均使用这几个参数为命令指定目标设备，下文中为简化描述，不再重复。**
+
+
+启动停止
+------------
+启动 adb server 命令：
+
+```
+adb start-server
+```
+
+（一般无需手动执行此命令，在运行 adb 命令时若发现 adb server 没有启动会自动调起。）
+停止 adb server 命令：
+
+```
+adb kill-server
+```
+
+查看 adb 版本
+------------
+命令：
+
+```
+adb version
+```
+
+示例输出：
+
+```
+Android Debug Bridge version 1.0.36
+Revision 8f855a3d9b35-android
+```
+
+以 root 权限运行 adbd
+------------
+adb 的运行原理是 PC 端的 adb server 与手机端的守护进程 adbd 建立连接，然后 PC 端的 adb client 通过 adb server 转发命令，adbd 接收命令后解析运行。
+所以如果 adbd 以普通权限执行，有些需要 root 权限才能执行的命令无法直接用 `adb xxx` 执行。这时可以 `adb shell` 然后 `su` 后执行命令，也可以让 adbd 以 root 权限执行，这个就能随意执行高权限命令了。
+命令：
+
+```
+adb root
+```
+
+正常输出：
+
+```
+restarting adbd as root
+```
+
+现在再运行 `adb shell`，看看命令行提示符是不是变成 `#` 了？
+有些手机 root 后也无法通过 `adb root` 命令让 adbd 以 root 权限执行，比如三星的部分机型，会提示 `adbd cannot run as root in production builds`，此时可以先安装 adbd Insecure，然后 `adb root` 试试。
+相应地，如果要恢复 adbd 为非 root 权限的话，可以使用 `adb unroot` 命令。
+
+**注意：**
+此命令仅针对安卓原生版本，国内大部分都是阉割的自定义OS，所以可能不会起作用
+
+
+指定 adb server 的网络端口
+------------
+命令：
+
+```
+adb -P <port> start-server
+```
+
+默认端口为 5037。
+

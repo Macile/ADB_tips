@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 简介 &mdash; ADB 123456 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 基本用法" href="基本用法.html" />
+    <link rel="prev" title="Welcome to ADB&#39;s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ADB
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">简介:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adb">1.1. ADB的工作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.2. 在设备上启用ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.3. 特别鸣谢</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">基本用法:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="基本用法.html">1. 基本用法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="设备连接.html">1. gpu</a></li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stact.html">1. gpu</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/简介.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>Android调试桥（英语：Android Debug Bridge，简称：ADB），是一种拥有许多功能的用于调试Android设备的命令行工具，可让您与Android设备进行通信。ADB命令便于执行各种设备操作（例如安装和调试应用，传输文件等），并提供对Unix shell（可用来在设备上运行各种命令）的访问权限。它是一种客户端-服务器程序，包括客户端、守护进程（adbd）、服务器三个组件。</p>
+<div class="section" id="adb">
+<h2><span class="section-number">1.1. </span>ADB的工作原理<a class="headerlink" href="#adb" title="永久链接至标题">¶</a></h2>
+<p>当您启动某个ADB客户端时，客户端会先检查是否有 adb 服务器进程正在运行。如果没有，它将启动服务器进程。服务器在启动后会与本地TCP端口 5037绑定，并监听ADB客户端发出的命令；所有 adb 客户端均通过端口5037与ADB服务器通信。然后，服务器会与所有正在运行的设备建立连接。它通过扫描5555到5585之间（该范围供前16个模拟器使用）的奇数号端口查找模拟器。服务器一旦发现ADB守护进程(adbd)，便会与相应的端口建立连接。每个模拟器都使用一对按顺序排列的端口 - 用于控制台连接的偶数号端口和用于ADB连接的奇数号端口。例如：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`模拟器</span> <span class="pre">1，控制台：5554`</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">`模拟器</span> <span class="pre">1，adb：5555`</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">`模拟器</span> <span class="pre">2，控制台：5556`</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">`模拟器</span> <span class="pre">2，adb：5557`</span></code></p>
+<p>依此类推…</p>
+<p>如上所示，在端口5555处与ADB连接的模拟器与控制台监听端口5554的模拟器是同一个。</p>
+<p>服务器与所有设备均建立连接后，便可以使用ADB命令访问这些设备。由于服务器管理与设备的连接，并处理来自多个ADB客户端的命令，因此可以从任意客户端（或从某个脚本）控制任意设备。</p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">1.2. </span>在设备上启用ADB<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>要通过USB连接的设备上使用ADB，必须在设备的系统设置中启用USB调试（位于开发者选项下）。</p>
+<p>在搭载Android4.2及更高版本的设备上，“开发者选项”选项默认处于隐藏状态。如需将其显示出来，请依次转到 设置&gt;关于手机，然后点按版本号七次。返回上一屏幕，在底部可以找到开发者选项。（在不同的系统上，“开发者选项”选项所在的位置或名字可能有所不同。）</p>
+<p>显示出“开发者模式”后，转至 开发者模式&gt;USB调试模式，将其选项改为开启后，便可通过USB连接设备。（当连接搭载Android4.2.2或更高版本的设备时，系统会显示一个对话框，询问您是否接受允许通过此计算机进行调试的RSA密钥。）</p>
+<p>若需验证设备是否连接，可以在ADB服务器中执行adb devices。如果设备已连接，您将看到设备名称以“设备”形式列出。</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.3. </span>特别鸣谢<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/mzlogin/awesome-adb">https://github.com/mzlogin/awesome-adb</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="基本用法.html" class="btn btn-neutral float-right" title="1. 基本用法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ADB&#39;s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, unity
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

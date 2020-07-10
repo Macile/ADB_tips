@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>其他 &mdash; ADB 123456 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ADB
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">简介:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="简介.html">1. 简介</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基本用法:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="基本用法.html">1. 基本用法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="设备连接.html">1. 设备连接管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用管理.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用交互:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用交互.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="文件管理.html">1. 文件管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">模拟按键:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="模拟按键.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">查看日志:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="查看日志.html">1. 查看日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">修改设置:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="修改设置.html">1. 修改设置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">常用功能:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="常用功能.html">1. 常用功能</a></li>
+</ul>
+<p class="caption"><span class="caption-text">刷机常用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="刷机常用.html">1. 刷机相关命令</a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全相关:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="安全相关.html">1. 安全相关命令</a></li>
+</ul>
+<p class="caption"><span class="caption-text">常见问题:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="常见问题.html">1. 常见问题</a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全相关:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="安全相关.html">1. 安全相关命令</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>其他</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/其他.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>其他<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>Android 系统是基于 Linux 内核的，所以 Linux 里的很多命令在 Android 里也有相同或类似的实现，在 <cite>adb shell</cite> 里可以调用。本文档前面的部分内容已经用到了 <cite>adb shell</cite> 命令。</p>
+<div class="section" id="id2">
+<h2>查看进程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">ps</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：
+.. code-block:: bash</p>
+<blockquote>
+<div><p>USER     PID   PPID  VSIZE  RSS     WCHAN    PC        NAME
+root      1     0     8904   788   ffffffff 00000000 S /init
+root      2     0     0      0     ffffffff 00000000 S kthreadd
+...
+u0_a71    7779  5926  1538748 48896 ffffffff 00000000 S com.sohu.inputmethod.sogou:classic
+u0_a58    7963  5926  1561916 59568 ffffffff 00000000 S org.mazhuang.boottimemeasure
+...
+shell     8750  217   10640  740   00000000 b6f28340 R ps</p>
+</div></blockquote>
+<p>各列含义：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>列名</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>USER</p></td>
+<td><p>所属用户</p></td>
+</tr>
+<tr class="row-odd"><td><p>PID</p></td>
+<td><p>进程 ID</p></td>
+</tr>
+<tr class="row-even"><td><p>PPID</p></td>
+<td><p>父进程 ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>进程名</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>查看实时资源占用情况<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">top</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>User <span class="m">0</span>%, System <span class="m">6</span>%, IOW <span class="m">0</span>%, IRQ <span class="m">0</span>%
+User <span class="m">3</span> + Nice <span class="m">0</span> + Sys <span class="m">21</span> + Idle <span class="m">280</span> + IOW <span class="m">0</span> + IRQ <span class="m">0</span> + SIRQ <span class="nv">3</span> <span class="o">=</span> <span class="m">307</span>
+
+PID PR CPU% S  <span class="c1">#THR     VSS     RSS PCY UID      Name</span>
+<span class="m">8763</span>  <span class="m">0</span>   <span class="m">3</span>% R     <span class="m">1</span>  10640K   1064K  <span class="nb">fg</span> shell    top
+<span class="m">131</span>  <span class="m">0</span>   <span class="m">3</span>% S     <span class="m">1</span>      0K      0K  <span class="nb">fg</span> root     dhd_dpc
+<span class="m">6144</span>  <span class="m">0</span>   <span class="m">0</span>% S   <span class="m">115</span> 1682004K 115916K  <span class="nb">fg</span> system   system_server
+<span class="m">132</span>  <span class="m">0</span>   <span class="m">0</span>% S     <span class="m">1</span>      0K      0K  <span class="nb">fg</span> root     dhd_rxf
+<span class="m">1731</span>  <span class="m">0</span>   <span class="m">0</span>% S     <span class="m">6</span>  20288K    788K  <span class="nb">fg</span> root     /system/bin/mpdecision
+<span class="m">217</span>  <span class="m">0</span>   <span class="m">0</span>% S     <span class="m">6</span>  18008K    356K  <span class="nb">fg</span> shell    /sbin/adbd
+...
+<span class="m">7779</span>  <span class="m">2</span>   <span class="m">0</span>% S    <span class="m">19</span> 1538748K  48896K  <span class="nb">bg</span> u0_a71   com.sohu.inputmethod.sogou:classic
+<span class="m">7963</span>  <span class="m">0</span>   <span class="m">0</span>% S    <span class="m">18</span> 1561916K  59568K  <span class="nb">fg</span> u0_a58   org.mazhuang.boottimemeasure
+...
+</pre></div>
+</div>
+<p>各列含义：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>列名</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PID</p></td>
+<td><p>进程 ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>PR</p></td>
+<td><p>优先级</p></td>
+</tr>
+<tr class="row-even"><td><p>CPU%</p></td>
+<td><p>当前瞬间占用 CPU 百分比</p></td>
+</tr>
+<tr class="row-odd"><td><p>S</p></td>
+<td><p>进程状态（R=运行，S=睡眠，T=跟踪/停止，Z=僵尸进程）</p></td>
+</tr>
+<tr class="row-even"><td><p>#THR</p></td>
+<td><p>线程数</p></td>
+</tr>
+<tr class="row-odd"><td><p>VSS</p></td>
+<td><p>Virtual Set Size 虚拟耗用内存（包含共享库占用的内存）</p></td>
+</tr>
+<tr class="row-even"><td><p>RSS</p></td>
+<td><p>Resident Set Size 实际使用物理内存（包含共享库占用的内存）</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCY</p></td>
+<td><p>调度策略优先级，SP_BACKGROUND/SPFOREGROUND</p></td>
+</tr>
+<tr class="row-even"><td><p>UID</p></td>
+<td><p>进程所有者的用户 ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>NAME</p></td>
+<td><p>进程名</p></td>
+</tr>
+</tbody>
+</table>
+<p><cite>top</cite> 命令还支持一些命令行参数，详细用法如下：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Usage: top <span class="o">[</span> -m max_procs <span class="o">]</span> <span class="o">[</span> -n iterations <span class="o">]</span> <span class="o">[</span> -d delay <span class="o">]</span> <span class="o">[</span> -s sort_column <span class="o">]</span> <span class="o">[</span> -t <span class="o">]</span> <span class="o">[</span> -h <span class="o">]</span>
+-m num  最多显示多少个进程
+-n num  刷新多少次后退出
+-d num  刷新时间间隔（单位秒，默认值 <span class="m">5</span>）
+-s col  按某列排序（可用 col 值：cpu, vss, rss, thr）
+-t      显示线程信息
+-h      显示帮助文档
+</pre></div>
+</div>
+</div>
+<div class="section" id="uid">
+<h2>查看进程 UID<a class="headerlink" href="#uid" title="永久链接至标题">¶</a></h2>
+<p>有两种方案：</p>
+<ol class="arabic">
+<li><p><cite>adb shell dumpsys package &lt;packagename&gt; | grep userId=</cite></p>
+<p>如：</p>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ adb shell dumpsys package org.mazhuang.guanggoo <span class="p">|</span> grep <span class="nv">userId</span><span class="o">=</span>
+<span class="nv">userId</span><span class="o">=</span><span class="m">10394</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
+<li><p>通过 ps 命令找到对应进程的 pid 之后 <cite>adb shell cat /proc/&lt;pid&gt;/status | grep Uid</cite></p>
+<p>如：</p>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ adb shell
+gemini:/ $ ps <span class="p">|</span> grep org.mazhuang.guanggoo
+u0_a394   <span class="m">28635</span> <span class="m">770</span>   <span class="m">1795812</span> <span class="m">78736</span> SyS_epoll_ <span class="m">0000000000</span> S org.mazhuang.guanggoo
+gemini:/ $ cat /proc/28635/status <span class="p">|</span> grep Uid
+Uid:    <span class="m">10394</span>   <span class="m">10394</span>   <span class="m">10394</span>   <span class="m">10394</span>
+gemini:/ $
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>其他简单命令描述<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>功能</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cat</p></td>
+<td><p>显示文件内容</p></td>
+</tr>
+<tr class="row-odd"><td><p>cd</p></td>
+<td><p>切换目录</p></td>
+</tr>
+<tr class="row-even"><td><p>chmod</p></td>
+<td><p>改变文件的存取模式/访问权限</p></td>
+</tr>
+<tr class="row-odd"><td><p>df</p></td>
+<td><p>查看磁盘空间使用情况</p></td>
+</tr>
+<tr class="row-even"><td><p>grep</p></td>
+<td><p>过滤输出</p></td>
+</tr>
+<tr class="row-odd"><td><p>kill</p></td>
+<td><p>杀死指定 PID 的进程</p></td>
+</tr>
+<tr class="row-even"><td><p>ls</p></td>
+<td><p>列举目录内容</p></td>
+</tr>
+<tr class="row-odd"><td><p>mount</p></td>
+<td><p>挂载目录的查看和管理</p></td>
+</tr>
+<tr class="row-even"><td><p>mv</p></td>
+<td><p>移动或重命名文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>ps</p></td>
+<td><p>查看正在运行的进程</p></td>
+</tr>
+<tr class="row-even"><td><p>rm</p></td>
+<td><p>删除文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>top</p></td>
+<td><p>查看进程的资源占用情况</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="adb">
+<h2>adb 的非官方实现<a class="headerlink" href="#adb" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>[fb-adb](<a class="reference external" href="https://github.com/facebook/fb-adb">https://github.com/facebook/fb-adb</a>) - A better shell for Android devices (for Mac).</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, unity
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

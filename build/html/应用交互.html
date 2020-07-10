@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 应用管理 &mdash; ADB 123456 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 文件管理" href="文件管理.html" />
+    <link rel="prev" title="1. 应用管理" href="应用管理.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ADB
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">简介:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="简介.html">1. 简介</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基本用法:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="基本用法.html">1. 基本用法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="设备连接.html">1. 设备连接管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用管理.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用交互:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 应用管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#activity">1.1. 启动应用/ 调起 Activity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service">1.2. 调起 Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.3. 停止 Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.4. 发送广播</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">1.5. 强制停止应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.6. 收紧内存</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">文件管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="文件管理.html">1. 文件管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">模拟按键:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="模拟按键.html">1. 应用管理</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>应用管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/应用交互.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>应用管理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>主要是使用 <cite>am &lt;command&gt;</cite> 命令，常用的 <cite>&lt;command&gt;</cite> 如下：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>command</p></th>
+<th class="head"><p>用途</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>start [options] &lt;INTENT&gt;</cite></p></td>
+<td><p>启动 <cite>&lt;INTENT&gt;</cite> 指定的 Activity</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>startservice [options] &lt;INTENT&gt;</cite></p></td>
+<td><p>启动 <cite>&lt;INTENT&gt;</cite> 指定的 Service</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>broadcast [options] &lt;INTENT&gt;</cite></p></td>
+<td><p>发送 <cite>&lt;INTENT&gt;</cite> 指定的广播</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>force-stop &lt;packagename&gt;</cite></p></td>
+<td><p>停止 <cite>&lt;packagename&gt;</cite> 相关的进程</p></td>
+</tr>
+</tbody>
+</table>
+<p><cite>&lt;INTENT&gt;</cite> 参数很灵活，和写 Android 程序时代码里的 Intent 相对应。</p>
+<p>用于决定 intent 对象的选项如下：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>-a &lt;ACTION&gt;</cite></p></td>
+<td><p>指定 action，比如 <cite>android.intent.action.VIEW</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>-c &lt;CATEGORY&gt;</cite></p></td>
+<td><p>指定 category，比如 <cite>android.intent.category.APP_CONTACTS</cite></p></td>
+</tr>
+<tr class="row-even"><td><p><cite>-n &lt;COMPONENT&gt;</cite></p></td>
+<td><p>指定完整 component 名，用于明确指定启动哪个 Activity，如 <cite>com.example.app/.ExampleActivity</cite></p></td>
+</tr>
+</tbody>
+</table>
+<p><cite>&lt;INTENT&gt;</cite> 里还能带数据，就像写代码时的 Bundle 一样：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>--esn &lt;EXTRA_KEY&gt;</cite></p></td>
+<td><p>null 值（只有 key 名）</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>-e|--es &lt;EXTRA_KEY&gt; &lt;EXTRA_STRING_VALUE&gt;</cite></p></td>
+<td><p>string 值</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>--ez &lt;EXTRA_KEY&gt; &lt;EXTRA_BOOLEAN_VALUE&gt;</cite></p></td>
+<td><p>boolean 值</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>--ei &lt;EXTRA_KEY&gt; &lt;EXTRA_INT_VALUE&gt;</cite></p></td>
+<td><p>integer 值</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>--el &lt;EXTRA_KEY&gt; &lt;EXTRA_LONG_VALUE&gt;</cite></p></td>
+<td><p>long 值</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>--ef &lt;EXTRA_KEY&gt; &lt;EXTRA_FLOAT_VALUE&gt;</cite></p></td>
+<td><p>float 值</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>--eu &lt;EXTRA_KEY&gt; &lt;EXTRA_URI_VALUE&gt;</cite></p></td>
+<td><p>URI</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>--ecn &lt;EXTRA_KEY&gt; &lt;EXTRA_COMPONENT_NAME_VALUE&gt;</cite></p></td>
+<td><p>component name</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>--eia &lt;EXTRA_KEY&gt; &lt;EXTRA_INT_VALUE&gt;[,&lt;EXTRA_INT_VALUE...]</cite></p></td>
+<td><p>integer 数组</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>--ela &lt;EXTRA_KEY&gt; &lt;EXTRA_LONG_VALUE&gt;[,&lt;EXTRA_LONG_VALUE...]</cite></p></td>
+<td><p>long 数组</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="activity">
+<h2><span class="section-number">1.1. </span>启动应用/ 调起 Activity<a class="headerlink" href="#activity" title="永久链接至标题">¶</a></h2>
+<p>&gt; 指定Activity名称启动</p>
+<p>命令格式：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">start</span> <span class="pre">[options]</span> <span class="pre">&lt;INTENT&gt;</span>
+<span class="pre">`</span></code></p>
+<p>例如：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">start</span> <span class="pre">-n</span> <span class="pre">com.tencent.mm/.ui.LauncherUI</span>
+<span class="pre">`</span></code></p>
+<p>表示调起微信主界面。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">start</span> <span class="pre">-n</span> <span class="pre">org.mazhuang.boottimemeasure/.MainActivity</span> <span class="pre">--es</span> <span class="pre">&quot;toast&quot;</span> <span class="pre">&quot;hello,</span> <span class="pre">world&quot;</span>
+<span class="pre">`</span></code></p>
+<p>表示调起 <cite>org.mazhuang.boottimemeasure/.MainActivity</cite> 并传给它 string 数据键值对 <cite>toast - hello, world</cite>。</p>
+<p>&gt; 不指定Activity名称启动（启动主Activity）</p>
+<p>命令格式：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">monkey</span> <span class="pre">-p</span> <span class="pre">&lt;packagename&gt;</span> <span class="pre">-c</span> <span class="pre">android.intent.category.LAUNCHER</span> <span class="pre">1</span>
+<span class="pre">`</span></code>
+例如：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">monkey</span> <span class="pre">-p</span> <span class="pre">com.tencent.mm</span> <span class="pre">-c</span> <span class="pre">android.intent.category.LAUNCHER</span> <span class="pre">1</span>
+<span class="pre">`</span></code></p>
+<p>表示调起微信主界面。</p>
+</div>
+<div class="section" id="service">
+<h2><span class="section-number">1.2. </span>调起 Service<a class="headerlink" href="#service" title="永久链接至标题">¶</a></h2>
+<p>命令格式：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">startservice</span> <span class="pre">[options]</span> <span class="pre">&lt;INTENT&gt;</span>
+<span class="pre">`</span></code></p>
+<p>例如：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">startservice</span> <span class="pre">-n</span> <span class="pre">com.tencent.mm/.plugin.accountsync.model.AccountAuthenticatorService</span>
+<span class="pre">`</span></code></p>
+<p>表示调起微信的某 Service。</p>
+<p>另外一个典型的用例是如果设备上原本应该显示虚拟按键但是没有显示，可以试试这个：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">startservice</span> <span class="pre">-n</span> <span class="pre">com.android.systemui/.SystemUIService</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">1.3. </span>停止 Service<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>命令格式：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">stopservice</span> <span class="pre">[options]</span> <span class="pre">&lt;INTENT&gt;</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.4. </span>发送广播<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>命令格式：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">broadcast</span> <span class="pre">[options]</span> <span class="pre">&lt;INTENT&gt;</span>
+<span class="pre">`</span></code></p>
+<p>可以向所有组件广播，也可以只向指定组件广播。</p>
+<p>例如，向所有组件广播 <cite>BOOT_COMPLETED</cite>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">broadcast</span> <span class="pre">-a</span> <span class="pre">android.intent.action.BOOT_COMPLETED</span>
+<span class="pre">`</span></code></p>
+<p>又例如，只向 <cite>org.mazhuang.boottimemeasure/.BootCompletedReceiver</cite> 广播 <cite>BOOT_COMPLETED</cite>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">broadcast</span> <span class="pre">-a</span> <span class="pre">android.intent.action.BOOT_COMPLETED</span> <span class="pre">-n</span> <span class="pre">org.mazhuang.boottimemeasure/.BootCompletedReceiver</span>
+<span class="pre">`</span></code></p>
+<p>这类用法在测试的时候很实用，比如某个广播的场景很难制造，可以考虑通过这种方式来发送广播。</p>
+<p>既能发送系统预定义的广播，也能发送自定义广播。如下是部分系统预定义广播及正常触发时机：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>action</p></th>
+<th class="head"><p>触发时机</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>android.net.conn.CONNECTIVITY_CHANGE</p></td>
+<td><p>网络连接发生变化</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.SCREEN_ON</p></td>
+<td><p>屏幕点亮</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.SCREEN_OFF</p></td>
+<td><p>屏幕熄灭</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.BATTERY_LOW</p></td>
+<td><p>电量低，会弹出电量低提示框</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.BATTERY_OKAY</p></td>
+<td><p>电量恢复了</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.BOOT_COMPLETED</p></td>
+<td><p>设备启动完毕</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.DEVICE_STORAGE_LOW</p></td>
+<td><p>存储空间过低</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.DEVICE_STORAGE_OK</p></td>
+<td><p>存储空间恢复</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.PACKAGE_ADDED</p></td>
+<td><p>安装了新的应用</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.net.wifi.STATE_CHANGE</p></td>
+<td><p>WiFi 连接状态发生变化</p></td>
+</tr>
+<tr class="row-even"><td><p>android.net.wifi.WIFI_STATE_CHANGED</p></td>
+<td><p>WiFi 状态变为启用/关闭/正在启动/正在关闭/未知</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.BATTERY_CHANGED</p></td>
+<td><p>电池电量发生变化</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.INPUT_METHOD_CHANGED</p></td>
+<td><p>系统输入法发生变化</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.ACTION_POWER_CONNECTED</p></td>
+<td><p>外部电源连接</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.ACTION_POWER_DISCONNECTED</p></td>
+<td><p>外部电源断开连接</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.DREAMING_STARTED</p></td>
+<td><p>系统开始休眠</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.DREAMING_STOPPED</p></td>
+<td><p>系统停止休眠</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.WALLPAPER_CHANGED</p></td>
+<td><p>壁纸发生变化</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.HEADSET_PLUG</p></td>
+<td><p>插入耳机</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.intent.action.MEDIA_UNMOUNTED</p></td>
+<td><p>卸载外部介质</p></td>
+</tr>
+<tr class="row-even"><td><p>android.intent.action.MEDIA_MOUNTED</p></td>
+<td><p>挂载外部介质</p></td>
+</tr>
+<tr class="row-odd"><td><p>android.os.action.POWER_SAVE_MODE_CHANGED</p></td>
+<td><p>省电模式开启</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>（以上广播均可使用 adb 触发）</em></p>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">1.5. </span>强制停止应用<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">force-stop</span> <span class="pre">&lt;packagename&gt;</span>
+<span class="pre">`</span></code></p>
+<p>命令示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">force-stop</span> <span class="pre">com.qihoo360.mobilesafe</span>
+<span class="pre">`</span></code></p>
+<p>表示停止 360 安全卫士的一切进程与服务。</p>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.6. </span>收紧内存<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>简单来说就是释放掉空闲的内存</p>
+<p>命令：
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">send-trim-memory</span>&#160; <span class="pre">&lt;pid&gt;</span> <span class="pre">&lt;level&gt;</span>
+<span class="pre">`</span></code></p>
+<p>pid: 进程 ID
+level:</p>
+<blockquote>
+<div><p>HIDDEN、RUNNING_MODERATE、BACKGROUND、
+RUNNING_LOW、MODERATE、RUNNING_CRITICAL、COMPLETE</p>
+</div></blockquote>
+<p>命令示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">am</span> <span class="pre">send-trim-memory</span> <span class="pre">12345</span> <span class="pre">RUNNING_LOW</span>
+<span class="pre">`</span></code></p>
+<p>表示向 pid=12345 的进程，发出 level=RUNNING_LOW 的收紧内存命令。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="文件管理.html" class="btn btn-neutral float-right" title="1. 文件管理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="应用管理.html" class="btn btn-neutral float-left" title="1. 应用管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, unity
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

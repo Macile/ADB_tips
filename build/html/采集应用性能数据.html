@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 型号相关信息 &mdash; ADB 123456 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 文件管理" href="文件管理.html" />
+    <link rel="prev" title="1. 查看设备信息" href="查看设备信息.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ADB
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">简介:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="简介.html">1. 简介</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基本用法:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="基本用法.html">1. 基本用法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="设备连接.html">1. 设备连接管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用管理.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用交互:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用交互.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">查看设备信息:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="查看设备信息.html">1. 查看设备信息</a></li>
+</ul>
+<p class="caption"><span class="caption-text">采集应用性能数据:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 型号相关信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">2. 采集应用性能数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#activity">2.1. 获取当前应用包名+activity名字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cpu">2.2. 获取当前应用消耗的cpu数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.3. 获取应用消耗的内存数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">2.4. 获取应用消耗的显示绘制数据</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">文件管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="文件管理.html">1. 文件管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">模拟按键:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="模拟按键.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">查看日志:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="查看日志.html">1. 查看日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">修改设置:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="修改设置.html">1. 修改设置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">常用功能:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="常用功能.html">1. 常用功能</a></li>
+</ul>
+<p class="caption"><span class="caption-text">刷机常用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="刷机常用.html">1. 刷机相关命令</a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全相关:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="安全相关.html">1. 安全相关命令</a></li>
+</ul>
+<p class="caption"><span class="caption-text">常见问题:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="常见问题.html">1. 常见问题</a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全相关:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="安全相关.html">1. 安全相关命令</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>型号相关信息</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/采集应用性能数据.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>型号相关信息<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>不同的安卓版本获取数据指标会有不同</p>
+<p>关于获取硬件配置信息的数据请查看</p>
+<p><a class="reference internal" href="查看设备信息.html"><span class="doc">查看设备信息</span></a></p>
+</div>
+<div class="section" id="id2">
+<h1><span class="section-number">2. </span>采集应用性能数据<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+<div class="section" id="activity">
+<h2><span class="section-number">2.1. </span>获取当前应用包名+activity名字<a class="headerlink" href="#activity" title="永久链接至标题">¶</a></h2>
+<p>低版本</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">window</span> <span class="pre">w</span> <span class="pre">|findstr</span> <span class="pre">\/</span> <span class="pre">|findstr</span> <span class="pre">name</span>
+<span class="pre">`</span></code></p>
+<p>高版本</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">window</span> <span class="pre">|</span> <span class="pre">findstr</span> <span class="pre">mCurrentFocus</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="cpu">
+<h2><span class="section-number">2.2. </span>获取当前应用消耗的cpu数据<a class="headerlink" href="#cpu" title="永久链接至标题">¶</a></h2>
+<p>命令格式</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">top</span> <span class="pre">-n</span> <span class="pre">1|</span> <span class="pre">findstr</span>&#160; <span class="pre">包名</span>
+<span class="pre">`</span></code></p>
+<p>例：此命令为查看com.github.ui应用的cpu消耗</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">-s</span> <span class="pre">3SLBB18528200035</span> <span class="pre">shell</span> <span class="pre">top</span> <span class="pre">-n</span> <span class="pre">1|</span> <span class="pre">findstr</span>&#160; <span class="pre">com.github.ui</span>
+<span class="pre">`</span></code></p>
+<p>输出格式:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">10391</span> <span class="pre">u0_a111</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">10</span> <span class="pre">-10</span> <span class="pre">2.2G</span>&#160; <span class="pre">57M</span>&#160; <span class="pre">46M</span> <span class="pre">S</span>&#160; <span class="pre">3.0</span>&#160;&#160; <span class="pre">1.5</span>&#160;&#160; <span class="pre">3:14.28</span> <span class="pre">com.github.uiau+</span>
+<span class="pre">`</span></code></p>
+<p>查看所有程序运行的消耗</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span>&#160; <span class="pre">shell</span> <span class="pre">top</span> <span class="pre">-n</span> <span class="pre">1</span>
+<span class="pre">`</span></code></p>
+<p>输出格式</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>?<span class="o">[</span>?25l?<span class="o">[</span>0m?<span class="o">[</span>H?<span class="o">[</span>J?<span class="o">[</span>s?<span class="o">[</span>999C?<span class="o">[</span>999B?<span class="o">[</span>6n?<span class="o">[</span>uTasks: <span class="m">598</span> total,   <span class="m">1</span> running, <span class="m">587</span> sleeping,   <span class="m">0</span> stopped,   <span class="m">1</span> zombie
+Mem:   3664584k total,  3620864k used,    43720k free,     2544k buffers
+Swap:  2097148k total,   411260k used,  1685888k free,  1853376k cached
+<span class="m">800</span>%cpu  <span class="m">21</span>%user   <span class="m">0</span>%nice  <span class="m">26</span>%sys <span class="m">750</span>%idle   <span class="m">0</span>%iow   <span class="m">0</span>%irq   <span class="m">3</span>%sirq   <span class="m">0</span>%host
+?<span class="o">[</span>7m  PID USER         PR  NI VIRT  RES  SHR S<span class="o">[</span>%CPU<span class="o">]</span> %MEM     TIME+ ARGS            ?<span class="o">[</span>0m
+ <span class="m">4573</span> shell        <span class="m">20</span>   <span class="m">0</span>  10M <span class="m">2</span>.3M <span class="m">1</span>.5M R <span class="m">32</span>.3   <span class="m">0</span>.0   <span class="m">0</span>:00.11 top -n <span class="m">1</span>
+<span class="m">30975</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">2</span>.9   <span class="m">0</span>.0   <span class="m">0</span>:09.33 <span class="o">[</span>kworker/u16:5<span class="o">]</span>
+<span class="m">24509</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">2</span>.9   <span class="m">0</span>.0   <span class="m">0</span>:38.74 <span class="o">[</span>kworker/u16:3<span class="o">]</span>
+ <span class="m">1017</span> system       <span class="m">20</span>   <span class="m">0</span>  19M <span class="m">1</span>.6M <span class="m">1</span>.5M S  <span class="m">2</span>.9   <span class="m">0</span>.0  <span class="m">72</span>:28.46 chargemonitor
+ <span class="m">1001</span> root         <span class="m">20</span>   <span class="m">0</span>  67M  10M <span class="m">3</span>.6M S  <span class="m">2</span>.9   <span class="m">0</span>.2 <span class="m">203</span>:30.21 hiview
+  <span class="m">720</span> system       RT   <span class="m">0</span>  58M <span class="m">2</span>.3M <span class="m">1</span>.9M S  <span class="m">2</span>.9   <span class="m">0</span>.0 <span class="m">970</span>:40.05 vendor.huawei.h+
+  <span class="m">529</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">2</span>.9   <span class="m">0</span>.0  <span class="m">19</span>:14.24 <span class="o">[</span>kauditd<span class="o">]</span>
+  <span class="m">499</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">2</span>.9   <span class="m">0</span>.0  <span class="m">68</span>:45.62 <span class="o">[</span>f2fs_discard-2+
+ <span class="m">4487</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.00 <span class="o">[</span>kworker/4:0<span class="o">]</span>
+ <span class="m">3725</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.00 <span class="o">[</span>kworker/0:5<span class="o">]</span>
+ <span class="m">3675</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.00 <span class="o">[</span>kworker/5:2<span class="o">]</span>
+ <span class="m">2801</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.00 <span class="o">[</span>kworker/4:1<span class="o">]</span>
+ <span class="m">2745</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.03 <span class="o">[</span>kworker/7:0<span class="o">]</span>
+ <span class="m">1931</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.00 <span class="o">[</span>kworker/5:1<span class="o">]</span>
+ <span class="m">1882</span> root          <span class="m">0</span> -20    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.00 <span class="o">[</span>kworker/u17:0<span class="o">]</span>
+  <span class="m">582</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.00 <span class="o">[</span>kworker/0:3<span class="o">]</span>
+<span class="m">31468</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.00 <span class="o">[</span>kworker/7:1<span class="o">]</span>
+<span class="m">27385</span> system       <span class="m">20</span>   <span class="m">0</span> <span class="m">2</span>.1G  48M  37M S  <span class="m">0</span>.0   <span class="m">1</span>.3   <span class="m">0</span>:00.58 com.huawei.hivi+
+<span class="m">26686</span> root         <span class="m">20</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span> S  <span class="m">0</span>.0   <span class="m">0</span>.0   <span class="m">0</span>:00.04 <span class="o">[</span>kworker/0:1<span class="o">]</span>
+?<span class="o">[</span>?25h?<span class="o">[</span>0m?<span class="o">[</span><span class="m">1000</span><span class="p">;</span>1H?<span class="o">[</span>K?<span class="o">[</span>?25h?<span class="o">[</span>0m?<span class="o">[</span><span class="m">1000</span><span class="p">;</span>1H?<span class="o">[</span>K0.0   <span class="m">0</span>.0   <span class="m">0</span>:00.01 <span class="o">[</span>kworker/u17:4<span class="o">]</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>属性名</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ro.build.version.sdk</p></td>
+<td><p>SDK 版本</p></td>
+</tr>
+<tr class="row-odd"><td><p>ro.build.version.release</p></td>
+<td><p>Android 系统版本</p></td>
+</tr>
+<tr class="row-even"><td><p>ro.build.version.security_patch</p></td>
+<td><p>Android 安全补丁程序级别</p></td>
+</tr>
+<tr class="row-odd"><td><p>ro.product.model</p></td>
+<td><p>型号</p></td>
+</tr>
+<tr class="row-even"><td><p>ro.product.brand</p></td>
+<td><p>品牌</p></td>
+</tr>
+<tr class="row-odd"><td><p>ro.product.name</p></td>
+<td><p>设备名</p></td>
+</tr>
+<tr class="row-even"><td><p>ro.product.board</p></td>
+<td><p>处理器型号</p></td>
+</tr>
+<tr class="row-odd"><td><p>ro.product.cpu.abilist</p></td>
+<td><p>CPU 支持的 abi 列表[<em>节注一</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p>persist.sys.isUsbOtgEnabled</p></td>
+<td><p>是否支持 OTG</p></td>
+</tr>
+<tr class="row-odd"><td><p>dalvik.vm.heapsize</p></td>
+<td><p>每个应用程序的内存上限</p></td>
+</tr>
+<tr class="row-even"><td><p>ro.sf.lcd_density</p></td>
+<td><p>屏幕密度</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.3. </span>获取应用消耗的内存数据<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">meminfo</span>&#160; <span class="pre">com.github.uiautomator</span>
+<span class="pre">`</span></code></p>
+<p>输出</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Applications Memory Usage <span class="o">(</span>in Kilobytes<span class="o">)</span>:
+Uptime: <span class="m">2986442181</span> Realtime: <span class="m">3040078023</span>
+
+** MEMINFO in pid <span class="m">10391</span> <span class="o">[</span>com.github.uiautomator<span class="o">]</span> **
+                   Pss  Private  Private  SwapPss     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap     <span class="m">3942</span>     <span class="m">3908</span>        <span class="m">0</span>        <span class="m">0</span>    <span class="m">14336</span>     <span class="m">9395</span>     <span class="m">4940</span>
+  Dalvik Heap     <span class="m">3496</span>     <span class="m">3320</span>       <span class="m">56</span>        <span class="m">0</span>    <span class="m">14109</span>     <span class="m">1821</span>    <span class="m">12288</span>
+ Dalvik Other     <span class="m">2028</span>     <span class="m">2028</span>        <span class="m">0</span>      <span class="m">120</span>
+        Stack      <span class="m">244</span>      <span class="m">244</span>        <span class="m">0</span>      <span class="m">148</span>
+       Ashmem        <span class="m">2</span>        <span class="m">0</span>        <span class="m">0</span>        <span class="m">0</span>
+      Gfx dev     <span class="m">1540</span>     <span class="m">1540</span>        <span class="m">0</span>        <span class="m">0</span>
+    Other dev        <span class="m">8</span>        <span class="m">0</span>        <span class="m">8</span>        <span class="m">0</span>
+     .so mmap      <span class="m">963</span>      <span class="m">152</span>       <span class="m">20</span>      <span class="m">250</span>
+    .apk mmap      <span class="m">435</span>        <span class="m">0</span>       <span class="m">64</span>        <span class="m">0</span>
+    .ttf mmap        <span class="m">8</span>        <span class="m">0</span>        <span class="m">0</span>        <span class="m">0</span>
+    .dex mmap     <span class="m">1813</span>        <span class="m">0</span>      <span class="m">568</span>        <span class="m">4</span>
+    .oat mmap      <span class="m">462</span>        <span class="m">0</span>       <span class="m">76</span>        <span class="m">0</span>
+    .art mmap     <span class="m">3817</span>     <span class="m">3416</span>       <span class="m">12</span>     <span class="m">1052</span>
+   Other mmap        <span class="m">9</span>        <span class="m">4</span>        <span class="m">0</span>        <span class="m">1</span>
+    GL mtrack     <span class="m">3572</span>     <span class="m">3572</span>        <span class="m">0</span>        <span class="m">0</span>
+      Unknown      <span class="m">192</span>      <span class="m">184</span>        <span class="m">4</span>      <span class="m">382</span>
+        TOTAL    <span class="m">24488</span>    <span class="m">18368</span>      <span class="m">808</span>     <span class="m">1957</span>    <span class="m">28445</span>    <span class="m">11216</span>    <span class="m">17228</span>
+
+ App Summary
+                       Pss<span class="o">(</span>KB<span class="o">)</span>
+                        ------
+           Java Heap:     <span class="m">6748</span>
+         Native Heap:     <span class="m">3908</span>
+                Code:      <span class="m">880</span>
+               Stack:      <span class="m">244</span>
+            Graphics:     <span class="m">5112</span>
+       Private Other:     <span class="m">2284</span>
+              System:     <span class="m">5312</span>
+
+               TOTAL:    <span class="m">24488</span>       TOTAL SWAP PSS:     <span class="m">1957</span>
+
+ Objects
+               Views:       <span class="m">21</span>         ViewRootImpl:        <span class="m">1</span>
+         AppContexts:        <span class="m">4</span>           Activities:        <span class="m">1</span>
+              Assets:        <span class="m">4</span>        AssetManagers:        <span class="m">3</span>
+       Local Binders:       <span class="m">21</span>        Proxy Binders:       <span class="m">26</span>
+       Parcel memory:        <span class="m">5</span>         Parcel count:       <span class="m">20</span>
+    Death Recipients:        <span class="m">0</span>      OpenSSL Sockets:        <span class="m">0</span>
+            WebViews:        <span class="m">0</span>
+
+ SQL
+         MEMORY_USED:        <span class="m">0</span>
+  PAGECACHE_OVERFLOW:        <span class="m">0</span>          MALLOC_SIZE:        <span class="m">0</span>
+</pre></div>
+</div>
+<p>解释下含义</p>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">2.4. </span>获取应用消耗的显示绘制数据<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">gfxinfo</span>&#160; <span class="pre">com.github.uiautomator</span>
+<span class="pre">`</span></code></p>
+<p>输出</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Applications Graphics Acceleration Info:
+Uptime: 2988543418 Realtime: 3042179260
+
+** Graphics info for pid 10391 [com.github.uiautomator] **
+
+Stats since: 2958727755602151ns
+Total frames rendered: 1
+Janky frames: 0 (0.00%)
+50th percentile: 16ms
+90th percentile: 16ms
+95th percentile: 16ms
+99th percentile: 16ms
+Number Missed Vsync: 0
+Number High input latency: 0
+Number Slow UI thread: 0
+Number Slow bitmap uploads: 0
+Number Slow issue draw commands: 0
+HISTOGRAM: 5ms=0 6ms=0 7ms=0 8ms=0 9ms=0 10ms=0 11ms=0 12ms=0 13ms=0 14ms=0 15ms=0 16ms=1 17ms=0 18ms=0 19ms=0 20ms=0 21ms=0 22ms=0 23ms=0 24ms=0 25ms=0 26ms=0 27ms=0 28ms=0 29ms=0 30ms=0 31ms=0 32ms=0 34ms=0 36ms=0 38ms=0 40ms=0 42ms=0 44ms=0 46ms=0 48ms=0 53ms=0
+57ms=0 61ms=0 65ms=0 69ms=0 73ms=0 77ms=0 81ms=0 85ms=0 89ms=0 93ms=0 97ms=0 101ms=0 105ms=0 109ms=0 113ms=0 117ms=0 121ms=0 125ms=0 129ms=0 133ms=0 150ms=0 200ms=0 250ms=0 300ms=0 350ms=0 400ms=0 450ms=0 500ms=0 550ms=0 600ms=0 650ms=0 700ms=0 750ms=0 800ms=0 850m
+s=0 900ms=0 950ms=0 1000ms=0 1050ms=0 1100ms=0 1150ms=0 1200ms=0 1250ms=0 1300ms=0 1350ms=0 1400ms=0 1450ms=0 1500ms=0 1550ms=0 1600ms=0 1650ms=0 1700ms=0 1750ms=0 1800ms=0 1850ms=0 1900ms=0 1950ms=0 2000ms=0 2050ms=0 2100ms=0 2150ms=0 2200ms=0 2250ms=0 2300ms=0 23
+50ms=0 2400ms=0 2450ms=0 2500ms=0 2550ms=0 2600ms=0 2650ms=0 2700ms=0 2750ms=0 2800ms=0 2850ms=0 2900ms=0 2950ms=0 3000ms=0 3050ms=0 3100ms=0 3150ms=0 3200ms=0 3250ms=0 3300ms=0 3350ms=0 3400ms=0 3450ms=0 3500ms=0 3550ms=0 3600ms=0 3650ms=0 3700ms=0 3750ms=0 3800ms
+=0 3850ms=0 3900ms=0 3950ms=0 4000ms=0 4050ms=0 4100ms=0 4150ms=0 4200ms=0 4250ms=0 4300ms=0 4350ms=0 4400ms=0 4450ms=0 4500ms=0 4550ms=0 4600ms=0 4650ms=0 4700ms=0 4750ms=0 4800ms=0 4850ms=0 4900ms=0 4950ms=0
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache                0 / 75497472
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  8388608
+  GradientCache               0 /  1048576
+  PathCache                   0 / 33554432
+  TessellationCache           0 /  1048576
+  TextDropShadowCache         0 /  6291456
+  PatchCache                  0 /        0
+FontRenderer doesn&#39;t exist.
+Other:
+  FboCache                    0 /        2
+Total memory usage:
+  0 bytes, 0.00 MB
+
+
+Pipeline=FrameBuilder
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0.00 kB
+</pre></div>
+</div>
+<p>解释下含义</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="文件管理.html" class="btn btn-neutral float-right" title="1. 文件管理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="查看设备信息.html" class="btn btn-neutral float-left" title="1. 查看设备信息" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, unity
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

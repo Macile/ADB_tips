@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 查看设备信息 &mdash; ADB 123456 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 型号相关信息" href="采集应用性能数据.html" />
+    <link rel="prev" title="1. 应用管理" href="应用交互.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ADB
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">简介:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="简介.html">1. 简介</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基本用法:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="基本用法.html">1. 基本用法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="设备连接.html">1. 设备连接管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用管理.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用交互:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用交互.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">查看设备信息:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 查看设备信息</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 型号相关信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.2. 查看当前系统信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">1.3. 电池状况</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">1.4. 屏幕分辨率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">1.5. 屏幕密度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">1.6. 显示屏参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#android-id">1.7. android_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imei">1.8. IMEI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#android">1.9. Android 系统版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ip">1.10. IP 地址</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mac">1.11. Mac 地址</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cpu">1.12. CPU 信息</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">采集应用性能数据:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="采集应用性能数据.html">1. 型号相关信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="采集应用性能数据.html#id2">2. 采集应用性能数据</a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="文件管理.html">1. 文件管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">模拟按键:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="模拟按键.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">查看日志:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="查看日志.html">1. 查看日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">修改设置:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="修改设置.html">1. 修改设置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">常用功能:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="常用功能.html">1. 常用功能</a></li>
+</ul>
+<p class="caption"><span class="caption-text">刷机常用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="刷机常用.html">1. 刷机相关命令</a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全相关:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="安全相关.html">1. 安全相关命令</a></li>
+</ul>
+<p class="caption"><span class="caption-text">常见问题:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="常见问题.html">1. 常见问题</a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全相关:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="安全相关.html">1. 安全相关命令</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>查看设备信息</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/查看设备信息.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>查看设备信息<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>型号相关信息<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">getprop</span> <span class="pre">ro.product.model</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`sh</span>
+<span class="pre">Nexus</span> <span class="pre">5</span>
+<span class="pre">`</span></code></p>
+<p>设备的更多硬件与系统属性可以通过如下命令查看：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">cat</span> <span class="pre">/system/build.prop</span>
+<span class="pre">`</span></code></p>
+<p>这会输出很多信息，包括前面几个小节提到的「型号」和「Android 系统版本」等。</p>
+<p>输出里还包括一些其它有用的信息，它们也可通过 <cite>adb shell getprop &lt;属性名&gt;</cite> 命令单独查看，</p>
+<p>也可以使用  <a href="#id3"><span class="problematic" id="id4">|</span></a>findstr &quot;关键字&quot; 进行过滤,如:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">window</span> <span class="pre">|</span> <span class="pre">findstr</span> <span class="pre">mCurrentFocus&quot;</span>&#160;&#160;&#160; <span class="pre">#查看前台应用，可以用来获取包名</span>
+<span class="pre">`</span></code></p>
+<p>列举一部分属性如下：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>属性名</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ro.build.version.sdk</p></td>
+<td><p>SDK 版本</p></td>
+</tr>
+<tr class="row-odd"><td><p>ro.build.version.release</p></td>
+<td><p>Android 系统版本</p></td>
+</tr>
+<tr class="row-even"><td><p>ro.build.version.security_patch</p></td>
+<td><p>Android 安全补丁程序级别</p></td>
+</tr>
+<tr class="row-odd"><td><p>ro.product.model</p></td>
+<td><p>型号</p></td>
+</tr>
+<tr class="row-even"><td><p>ro.product.brand</p></td>
+<td><p>品牌</p></td>
+</tr>
+<tr class="row-odd"><td><p>ro.product.name</p></td>
+<td><p>设备名</p></td>
+</tr>
+<tr class="row-even"><td><p>ro.product.board</p></td>
+<td><p>处理器型号</p></td>
+</tr>
+<tr class="row-odd"><td><p>ro.product.cpu.abilist</p></td>
+<td><p>CPU 支持的 abi 列表[<em>节注一</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p>persist.sys.isUsbOtgEnabled</p></td>
+<td><p>是否支持 OTG</p></td>
+</tr>
+<tr class="row-odd"><td><p>dalvik.vm.heapsize</p></td>
+<td><p>每个应用程序的内存上限</p></td>
+</tr>
+<tr class="row-even"><td><p>ro.sf.lcd_density</p></td>
+<td><p>屏幕密度</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>节注一：</em></p>
+<p>一些小厂定制的 ROM 可能修改过 CPU 支持的 abi 列表的属性名，如果用 <cite>ro.product.cpu.abilist</cite> 属性名查找不到，可以这样试试：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">cat</span> <span class="pre">/system/build.prop</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">ro.product.cpu.abi</span>
+<span class="pre">`</span></code></p>
+<p>示例输出：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">ro.product.cpu.abi=armeabi-v7a</span>
+<span class="pre">ro.product.cpu.abi2=armeabi</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.2. </span>查看当前系统信息<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">[options]</span>
+<span class="pre">`</span></code></p>
+<p>例如查看电池信息:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">battery</span>
+<span class="pre">`</span></code></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>options</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>battery</p></td>
+<td><p>电池状态</p></td>
+</tr>
+<tr class="row-odd"><td><p>batteryproperties</p></td>
+<td><p>电池属性</p></td>
+</tr>
+<tr class="row-even"><td><p>batterystats</p></td>
+<td><p>电池状态</p></td>
+</tr>
+<tr class="row-odd"><td><p>cpuinfo</p></td>
+<td><p>cpu信息</p></td>
+</tr>
+<tr class="row-even"><td><p>devicestoragemonitor</p></td>
+<td><p>设备存储监视器</p></td>
+</tr>
+<tr class="row-odd"><td><p>diskstats</p></td>
+<td><p>磁盘统计</p></td>
+</tr>
+<tr class="row-even"><td><p>ioinfo</p></td>
+<td><p>I/O信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>meminfo</p></td>
+<td><p>内存信息</p></td>
+</tr>
+<tr class="row-even"><td><p>mount</p></td>
+<td><p>挂载信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>netstats</p></td>
+<td><p>网络统计</p></td>
+</tr>
+<tr class="row-even"><td><p>network_management</p></td>
+<td><p>网络管理</p></td>
+</tr>
+<tr class="row-odd"><td><p>package</p></td>
+<td><p>包信息</p></td>
+</tr>
+<tr class="row-even"><td><p>processinfo</p></td>
+<td><p>进程信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>procstats</p></td>
+<td><p>进程统计</p></td>
+</tr>
+<tr class="row-even"><td><p>gfxinfo</p></td>
+<td><p>有关与录制阶段期间发生的动画帧相关的性能信息</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">1.3. </span>电池状况<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">battery</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Current Battery Service state:
+AC powered: <span class="nb">false</span>
+USB powered: <span class="nb">true</span>
+Wireless powered: <span class="nb">false</span>
+status: <span class="m">2</span>
+health: <span class="m">2</span>
+present: <span class="nb">true</span>
+level: <span class="m">44</span>
+scale: <span class="m">100</span>
+voltage: <span class="m">3872</span>
+temperature: <span class="m">280</span>
+technology: Li-poly
+</pre></div>
+</div>
+<p>其中 <cite>scale</cite> 代表最大电量，<cite>level</cite> 代表当前电量。上面的输出表示还剩下 44% 的电量。</p>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">1.4. </span>屏幕分辨率<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">wm</span> <span class="pre">size</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Physical</span> <span class="pre">size:</span> <span class="pre">1080x1920</span>
+<span class="pre">`</span></code></p>
+<p>该设备屏幕分辨率为 1080px * 1920px。</p>
+<p>如果使用命令修改过，那输出可能是：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Physical size: 1080x1920
+Override size: 480x1024
+</pre></div>
+</div>
+<p>表明设备的屏幕分辨率原本是 1080px * 1920px，当前被修改为 480px * 1024px。</p>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">1.5. </span>屏幕密度<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">wm</span> <span class="pre">density</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Physical</span> <span class="pre">density:</span> <span class="pre">420</span>
+<span class="pre">`</span></code></p>
+<p>该设备屏幕密度为 420dpi。</p>
+<p>如果使用命令修改过，那输出可能是：
+.. code-block:: bash</p>
+<blockquote>
+<div><p>Physical density: 480
+Override density: 160</p>
+</div></blockquote>
+<p>表明设备的屏幕密度原来是 480dpi，当前被修改为 160dpi。</p>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">1.6. </span>显示屏参数<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">dumpsys</span> <span class="pre">window</span> <span class="pre">displays</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>WINDOW MANAGER DISPLAY CONTENTS <span class="o">(</span>dumpsys window displays<span class="o">)</span>
+        Display: <span class="nv">mDisplayId</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">init</span><span class="o">=</span>1080x1920 420dpi <span class="nv">cur</span><span class="o">=</span>1080x1920 <span class="nv">app</span><span class="o">=</span>1080x1794 <span class="nv">rng</span><span class="o">=</span>1080x1017-1810x1731
+<span class="nv">deferred</span><span class="o">=</span><span class="nb">false</span> <span class="nv">layoutNeeded</span><span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+<p>其中 <cite>mDisplayId</cite> 为 显示屏编号，<cite>init</cite> 是初始分辨率和屏幕密度，<cite>app</cite> 的高度比 <cite>init</cite> 里的要小，表示屏幕底部有虚拟按键，高度为 1920 - 1794 = 126px 合 42dp。</p>
+</div>
+<div class="section" id="android-id">
+<h2><span class="section-number">1.7. </span>android_id<a class="headerlink" href="#android-id" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">get</span> <span class="pre">secure</span> <span class="pre">android_id</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">51b6be48bac8c569</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="imei">
+<h2><span class="section-number">1.8. </span>IMEI<a class="headerlink" href="#imei" title="永久链接至标题">¶</a></h2>
+<p>在 Android 4.4 及以下版本可通过如下命令获取 IMEI：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb shell dumpsys iphonesubinfo</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Phone Subscriber Info:
+        Phone <span class="nv">Type</span> <span class="o">=</span> GSM
+        Device <span class="nv">ID</span> <span class="o">=</span> <span class="m">860955027785041</span>
+</pre></div>
+</div>
+<p>其中的 <cite>Device ID</cite> 就是 IMEI。</p>
+<p>而在 Android 5.0 及以上版本里这个命令输出为空，得通过其它方式获取了（需要 root 权限）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>adb shell
+su
+service call iphonesubinfo <span class="m">1</span>
+</pre></div>
+</div>
+<p>输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Result: Parcel<span class="o">(</span>
+        0x00000000: <span class="m">00000000</span> 0000000f <span class="m">00360038</span> <span class="m">00390030</span> <span class="s1">&#39;........8.6.0.9.&#39;</span>
+        0x00000010: <span class="m">00350035</span> <span class="m">00320030</span> <span class="m">00370037</span> <span class="m">00350038</span> <span class="s1">&#39;5.5.0.2.7.7.8.5.&#39;</span>
+        0x00000020: <span class="m">00340030</span> <span class="m">00000031</span>                   <span class="s1">&#39;0.4.1...        &#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>把里面的有效内容提取出来就是 IMEI 了，比如这里的是 <cite>860955027785041</cite>。</p>
+<p>参考：[adb shell dumpsys iphonesubinfo not working since Android 5.0 Lollipop](<a class="reference external" href="http://stackoverflow.com/questions/27002663/adb-shell-dumpsys-iphonesubinfo-not-working-since-android-5-0-lollipop">http://stackoverflow.com/questions/27002663/adb-shell-dumpsys-iphonesubinfo-not-working-since-android-5-0-lollipop</a>)</p>
+</div>
+<div class="section" id="android">
+<h2><span class="section-number">1.9. </span>Android 系统版本<a class="headerlink" href="#android" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">getprop</span> <span class="pre">ro.build.version.release</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">5.0.2</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="ip">
+<h2><span class="section-number">1.10. </span>IP 地址<a class="headerlink" href="#ip" title="永久链接至标题">¶</a></h2>
+<p>每次想知道设备的 IP 地址的时候都得「设置」-「关于手机」-「状态信息」-「IP地址」很烦对不对？通过 adb 可以方便地查看。</p>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">ifconfig</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">Mask</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：
+.. code-block:: bash</p>
+<blockquote>
+<div><p>inet addr:10.130.245.230  Mask:255.255.255.252
+inet addr:127.0.0.1  Mask:255.0.0.0</p>
+</div></blockquote>
+<p>那么 <cite>10.130.245.230</cite> 就是设备 IP 地址。</p>
+<p>在有的设备上这个命令没有输出，如果设备连着 WiFi，可以使用如下命令来查看局域网 IP：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">ifconfig</span> <span class="pre">wlan0</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">wlan0:</span> <span class="pre">ip</span> <span class="pre">10.129.160.99</span> <span class="pre">mask</span> <span class="pre">255.255.240.0</span> <span class="pre">flags</span> <span class="pre">[up</span> <span class="pre">broadcast</span> <span class="pre">running</span> <span class="pre">multicast]</span>
+<span class="pre">`</span></code></p>
+<p>或</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wlan0     Link encap:UNSPEC
+        inet addr:10.129.168.57  Bcast:10.129.175.255  Mask:255.255.240.0
+        inet6 addr: fe80::66cc:2eff:fe68:b6b6/64 Scope: Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:496520 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:68215 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:3000
+        RX bytes:116266821 TX bytes:8311736
+</pre></div>
+</div>
+<p>如果以上命令仍然不能得到期望的信息，那可以试试以下命令（部分系统版本里可用）：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">netcfg</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wlan0    UP                               <span class="m">10</span>.129.160.99/20  0x00001043 f8:a9:d0:17:42:4d
+lo       UP                                   <span class="m">127</span>.0.0.1/8   0x00000049 <span class="m">00</span>:00:00:00:00:00
+p2p0     UP                                     <span class="m">0</span>.0.0.0/0   0x00001003 fa:a9:d0:17:42:4d
+sit0     DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000080 <span class="m">00</span>:00:00:00:00:00
+rmnet0   DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000000 <span class="m">00</span>:00:00:00:00:00
+rmnet1   DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000000 <span class="m">00</span>:00:00:00:00:00
+rmnet3   DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000000 <span class="m">00</span>:00:00:00:00:00
+rmnet2   DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000000 <span class="m">00</span>:00:00:00:00:00
+rmnet4   DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000000 <span class="m">00</span>:00:00:00:00:00
+rmnet6   DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000000 <span class="m">00</span>:00:00:00:00:00
+rmnet5   DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000000 <span class="m">00</span>:00:00:00:00:00
+rmnet7   DOWN                                   <span class="m">0</span>.0.0.0/0   0x00000000 <span class="m">00</span>:00:00:00:00:00
+rev_rmnet3 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 4e:b7:e4:2e:17:58
+rev_rmnet2 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 4e:f0:c8:bf:7a:cf
+rev_rmnet4 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 a6:c0:3b:6b:c4:1f
+rev_rmnet6 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 <span class="m">66</span>:bb:5d:64:2e:e9
+rev_rmnet5 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 0e:1b:eb:b9:23:a0
+rev_rmnet7 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 7a:d9:f6:81:40:5a
+rev_rmnet8 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 4e:e2:a9:bb:d0:1b
+rev_rmnet0 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 fe:65:d0:ca:82:a9
+rev_rmnet1 DOWN                                   <span class="m">0</span>.0.0.0/0   0x00001002 da:d8:e8:4f:2e:fe
+</pre></div>
+</div>
+<p>可以看到网络连接名称、启用状态、IP 地址和 Mac 地址等信息。</p>
+</div>
+<div class="section" id="mac">
+<h2><span class="section-number">1.11. </span>Mac 地址<a class="headerlink" href="#mac" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">cat</span> <span class="pre">/sys/class/net/wlan0/address</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">f8:a9:d0:17:42:4d</span>
+<span class="pre">`</span></code></p>
+<p>这查看的是局域网 Mac 地址，移动网络或其它连接的信息可以通过前面的小节「IP 地址」里提到的 <cite>adb shell netcfg</cite> 命令来查看。</p>
+</div>
+<div class="section" id="cpu">
+<h2><span class="section-number">1.12. </span>CPU 信息<a class="headerlink" href="#cpu" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">cat</span> <span class="pre">/proc/cpuinfo</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Processor       : ARMv7 Processor rev <span class="m">0</span> <span class="o">(</span>v7l<span class="o">)</span>
+processor       : <span class="m">0</span>
+BogoMIPS        : <span class="m">38</span>.40
+
+processor       : <span class="m">1</span>
+BogoMIPS        : <span class="m">38</span>.40
+
+processor       : <span class="m">2</span>
+BogoMIPS        : <span class="m">38</span>.40
+
+processor       : <span class="m">3</span>
+BogoMIPS        : <span class="m">38</span>.40
+
+Features        : swp half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt
+CPU implementer : 0x51
+CPU architecture: <span class="m">7</span>
+CPU variant     : 0x2
+CPU part        : 0x06f
+CPU revision    : <span class="m">0</span>
+
+Hardware        : Qualcomm MSM <span class="m">8974</span> HAMMERHEAD <span class="o">(</span>Flattened Device Tree<span class="o">)</span>
+Revision        : 000b
+Serial          : <span class="m">0000000000000000</span>
+</pre></div>
+</div>
+<p>这是 Nexus 5 的 CPU 信息，我们从输出里可以看到使用的硬件是 <cite>Qualcomm MSM 8974</cite>，processor 的编号是 0 到 3，所以它是四核的，采用的架构是 <cite>ARMv7 Processor rev 0 (v71)</cite>。</p>
+<p>内存信息</p>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">cat</span> <span class="pre">/proc/meminfo</span>
+<span class="pre">`</span></code></p>
+<p>输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>MemTotal:        <span class="m">1027424</span> kB
+MemFree:          <span class="m">486564</span> kB
+Buffers:           <span class="m">15224</span> kB
+Cached:            <span class="m">72464</span> kB
+SwapCached:        <span class="m">24152</span> kB
+Active:           <span class="m">110572</span> kB
+Inactive:         <span class="m">259060</span> kB
+Active<span class="o">(</span>anon<span class="o">)</span>:      <span class="m">79176</span> kB
+Inactive<span class="o">(</span>anon<span class="o">)</span>:   <span class="m">207736</span> kB
+Active<span class="o">(</span>file<span class="o">)</span>:      <span class="m">31396</span> kB
+Inactive<span class="o">(</span>file<span class="o">)</span>:    <span class="m">51324</span> kB
+Unevictable:        <span class="m">3948</span> kB
+Mlocked:               <span class="m">0</span> kB
+HighTotal:        <span class="m">409600</span> kB
+HighFree:         <span class="m">132612</span> kB
+LowTotal:         <span class="m">617824</span> kB
+LowFree:          <span class="m">353952</span> kB
+SwapTotal:        <span class="m">262140</span> kB
+SwapFree:         <span class="m">207572</span> kB
+Dirty:                 <span class="m">0</span> kB
+Writeback:             <span class="m">0</span> kB
+AnonPages:        <span class="m">265324</span> kB
+Mapped:            <span class="m">47072</span> kB
+Shmem:              <span class="m">1020</span> kB
+Slab:              <span class="m">57372</span> kB
+SReclaimable:       <span class="m">7692</span> kB
+SUnreclaim:        <span class="m">49680</span> kB
+KernelStack:        <span class="m">4512</span> kB
+PageTables:         <span class="m">5912</span> kB
+NFS_Unstable:          <span class="m">0</span> kB
+Bounce:                <span class="m">0</span> kB
+WritebackTmp:          <span class="m">0</span> kB
+CommitLimit:      <span class="m">775852</span> kB
+Committed_AS:   <span class="m">13520632</span> kB
+VmallocTotal:     <span class="m">385024</span> kB
+VmallocUsed:       <span class="m">61004</span> kB
+VmallocChunk:     <span class="m">209668</span> kB
+</pre></div>
+</div>
+<p>其中，<cite>MemTotal</cite> 就是设备的总内存，<cite>MemFree</cite> 是当前空闲内存。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="采集应用性能数据.html" class="btn btn-neutral float-right" title="1. 型号相关信息" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="应用交互.html" class="btn btn-neutral float-left" title="1. 应用管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, unity
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

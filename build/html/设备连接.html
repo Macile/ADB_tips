@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 设备连接管理 &mdash; ADB 123456 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. gpu" href="stact.html" />
+    <link rel="prev" title="1. 基本用法" href="基本用法.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ADB
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">简介:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="简介.html">1. 简介</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基本用法:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="基本用法.html">1. 基本用法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 设备连接管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 查询已连接设备/模拟器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usb">1.2. USB 连接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.3. 无线连接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">1.4. 无线连接</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stact.html">1. gpu</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>设备连接管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/设备连接.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>设备连接管理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>查询已连接设备/模拟器<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">devices</span>
+<span class="pre">`</span></code>
+输出示例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>List of devices attached
+cf264b8f  device
+emulator-5554 device
+<span class="m">10</span>.129.164.6:5555 device
+</pre></div>
+</div>
+<p>输出格式为 <cite>[serialNumber] [state]</cite>，serialNumber 即我们常说的 SN，state 有如下几种：</p>
+<ul class="simple">
+<li><p><cite>offline</cite> —— 表示设备未连接成功或无响应。</p></li>
+<li><p><cite>device</cite> —— 设备已连接。注意这个状态并不能标识 Android 系统已经完全启动和可操作，在设备启动过程中设备实例就可连接到 adb，但启动完毕后系统才处于可操作状态。</p></li>
+<li><p><cite>no device</cite> —— 没有设备/模拟器连接。</p></li>
+</ul>
+<p>以上输出显示当前已经连接了三台设备/模拟器，<cite>cf264b8f</cite>、<cite>emulator-5554</cite> 和 <cite>10.129.164.6:5555</cite> 分别是它们的 SN。从 <cite>emulator-5554</cite> 这个名字可以看出它是一个 Android 模拟器，而 <cite>10.129.164.6:5555</cite> 这种形为 <cite>&lt;IP&gt;:&lt;Port&gt;</cite> 的 serialNumber 一般是无线连接的设备或 Genymotion 等第三方 Android 模拟器。</p>
+<p>常见异常输出：</p>
+<ol class="arabic">
+<li><p>没有设备/模拟器连接成功。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">List</span> <span class="pre">of</span> <span class="pre">devices</span> <span class="pre">attached</span>
+<span class="pre">`</span></code></p>
+</li>
+<li><p>设备/模拟器未连接到 adb 或无响应。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">List</span> <span class="pre">of</span> <span class="pre">devices</span> <span class="pre">attached</span>
+<span class="pre">cf264b8f</span> <span class="pre">offline</span>
+<span class="pre">`</span></code></p>
+</li>
+</ol>
+</div>
+<div class="section" id="usb">
+<h2><span class="section-number">1.2. </span>USB 连接<a class="headerlink" href="#usb" title="永久链接至标题">¶</a></h2>
+<p>通过 USB 连接来正常使用 adb 需要保证几点：</p>
+<ol class="arabic">
+<li><p>硬件状态正常。</p>
+<p>包括 Android 设备处于正常开机状态，USB 连接线和各种接口完好。</p>
+</li>
+<li><p>Android 设备的开发者选项和 USB 调试模式已开启。</p>
+<p>可以到「设置」-「开发者选项」-「Android 调试」查看。</p>
+<p>如果在设置里找不到开发者选项，那需要通过一个彩蛋来让它显示出来：在「设置」-「关于手机」连续点击「版本号」7 次。</p>
+</li>
+<li><p>设备驱动状态正常。</p>
+<p>这一点貌似在 Linux 和 Mac OS X 下不用操心，在 Windows 下有可能遇到需要安装驱动的情况，确认这一点可以右键「计算机」-「属性」，到「设备管理器」里查看相关设备上是否有黄色感叹号或问号，如果没有就说明驱动状态已经好了。否则可以下载一个手机助手类程序来安装驱动先。</p>
+</li>
+<li><p>通过 USB 线连接好电脑和设备后确认状态。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">devices</span>
+<span class="pre">`</span></code></p>
+<p>如果能看到</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">xxxxxx</span> <span class="pre">device</span>
+<span class="pre">`</span></code></p>
+<p>说明连接成功。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.3. </span>无线连接<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>需要借助USB线</p>
+<p>除了可以通过 USB 连接设备与电脑来使用 adb，也可以通过无线连接——虽然连接过程中也有需要使用 USB 的步骤，但是连接成功之后你的设备就可以在一定范围内摆脱 USB 连接线的限制啦！</p>
+<p>操作步骤：</p>
+<ol class="arabic">
+<li><p>将 Android 设备与要运行 adb 的电脑连接到同一个局域网，比如连到同一个 WiFi。</p></li>
+<li><p>将设备与电脑通过 USB 线连接。</p>
+<p>应确保连接成功（可运行 <cite>adb devices</cite> 看是否能列出该设备）。</p>
+</li>
+<li><p>让设备在 5555 端口监听 TCP/IP 连接：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">tcpip</span> <span class="pre">5555</span>
+<span class="pre">`</span></code></p>
+</li>
+<li><p>断开 USB 连接。</p></li>
+<li><p>找到设备的 IP 地址。</p>
+<p>一般能在「设置」-「关于手机」-「状态信息」-「IP地址」找到，也可以使用下文里 [查看设备信息 - IP 地址][1] 一节里的方法用 adb 命令来查看。</p>
+</li>
+<li><p>通过 IP 地址连接设备。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">connect</span> <span class="pre">&lt;device-ip-address&gt;</span>
+<span class="pre">`</span></code></p>
+<p>这里的 <cite>&lt;device-ip-address&gt;</cite> 就是上一步中找到的设备 IP 地址。</p>
+</li>
+<li><p>确认连接状态。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">devices</span>
+<span class="pre">`</span></code></p>
+<p>如果能看到</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">&lt;device-ip-address&gt;:5555</span> <span class="pre">device</span>
+<span class="pre">`</span></code></p>
+<p>说明连接成功。</p>
+</li>
+</ol>
+<p>如果连接不了，请确认 Android 设备与电脑是连接到了同一个 WiFi，然后再次执行 <cite>adb connect &lt;device-ip-address&gt;</cite> 那一步；</p>
+<p>如果还是不行的话，通过 <cite>adb kill-server</cite> 重新启动 adb 然后从头再来一次试试。</p>
+<p><strong>断开无线连接</strong></p>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">disconnect</span> <span class="pre">&lt;device-ip-address&gt;</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">1.4. </span>无线连接<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>无需借助 USB 线
+<strong>注：需要 root 权限。</strong></p>
+<p>上一节「无线连接（需要借助 USB 线）」是官方文档里介绍的方法，需要借助于 USB 数据线来实现无线连接。</p>
+<p>既然我们想要实现无线连接，那能不能所有步骤下来都是无线的呢？答案是能的。</p>
+<ol class="arabic">
+<li><p>在 Android 设备上安装一个终端模拟器。</p>
+<p>已经安装过的设备可以跳过此步。我使用的终端模拟器下载地址是：[Terminal Emulator for Android Downloads](<a class="reference external" href="https://jackpal.github.io/Android-Terminal-Emulator/">https://jackpal.github.io/Android-Terminal-Emulator/</a>)</p>
+</li>
+<li><p>将 Android 设备与要运行 adb 的电脑连接到同一个局域网，比如连到同一个 WiFi。</p></li>
+<li><p>打开 Android 设备上的终端模拟器，在里面依次运行命令：</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su
+setprop service.adb.tcp.port <span class="m">5555</span>
+</pre></div>
+</div>
+<ol class="arabic" start="4">
+<li><p>找到 Android 设备的 IP 地址。</p>
+<p>一般能在「设置」-「关于手机」-「状态信息」-「IP地址」找到，也可以使用下文里 [查看设备信息 - IP 地址][1] 一节里的方法用 adb 命令来查看。</p>
+</li>
+<li><p>在电脑上通过 adb 和 IP 地址连接 Android 设备。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">connect</span> <span class="pre">&lt;device-ip-address&gt;</span>
+<span class="pre">`</span></code></p>
+<p>这里的 <cite>&lt;device-ip-address&gt;</cite> 就是上一步中找到的设备 IP 地址。</p>
+<p>如果能看到 <cite>connected to &lt;device-ip-address&gt;:5555</cite> 这样的输出则表示连接成功。</p>
+</li>
+</ol>
+<p><em>节注一：</em></p>
+<p>有的设备，比如小米 5S + MIUI 8.0 + Android 6.0.1 MXB48T，可能在第 5 步之前需要重启 adbd 服务，在设备的终端模拟器上运行：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">restart</span> <span class="pre">adbd</span>
+<span class="pre">`</span></code></p>
+<p>如果 restart 无效，尝试以下命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">stop</span> <span class="pre">adbd</span>
+<span class="pre">start</span> <span class="pre">adbd</span>
+<span class="pre">`</span></code></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stact.html" class="btn btn-neutral float-right" title="1. gpu" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="基本用法.html" class="btn btn-neutral float-left" title="1. 基本用法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, unity
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

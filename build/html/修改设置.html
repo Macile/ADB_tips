@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 修改设置 &mdash; ADB 123456 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="1. 查看日志" href="查看日志.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ADB
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">简介:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="简介.html">1. 简介</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基本用法:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="基本用法.html">1. 基本用法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">设备连接:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="设备连接.html">1. 设备连接管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用管理.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">应用交互:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="应用交互.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="文件管理.html">1. 文件管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">模拟按键:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="模拟按键.html">1. 应用管理</a></li>
+</ul>
+<p class="caption"><span class="caption-text">查看日志:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="查看日志.html">1. 查看日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">修改设置:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 修改设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 分辨率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.2. 屏幕密度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">1.3. 显示区域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usb">1.4. 关闭 USB 调试模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sdk-api">1.5. 允许/禁止访问非 SDK API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.6. 状态栏和导航栏的显示隐藏</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>修改设置</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/修改设置.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>修改设置<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p><strong>注：</strong> 修改设置之后，运行恢复命令有可能显示仍然不太正常，可以运行 <cite>adb reboot</cite> 重启设备，或手动重启。</p>
+<p>修改设置的原理主要是通过 settings 命令修改 /data/data/com.android.providers.settings/databases/settings.db 里存放的设置值。</p>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>分辨率<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">wm</span> <span class="pre">size</span> <span class="pre">480x1024</span>
+<span class="pre">`</span></code></p>
+<p>表示将分辨率修改为 480px * 1024px。</p>
+<p>恢复原分辨率命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">wm</span> <span class="pre">size</span> <span class="pre">reset</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.2. </span>屏幕密度<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">wm</span> <span class="pre">density</span> <span class="pre">160</span>
+<span class="pre">`</span></code></p>
+<p>表示将屏幕密度修改为 160dpi。</p>
+<p>恢复原屏幕密度命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">wm</span> <span class="pre">density</span> <span class="pre">reset</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">1.3. </span>显示区域<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">wm</span> <span class="pre">overscan</span> <span class="pre">0,0,0,200</span>
+<span class="pre">`</span></code></p>
+<p>四个数字分别表示距离左、上、右、下边缘的留白像素，以上命令表示将屏幕底部 200px 留白。</p>
+<p>恢复原显示区域命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">wm</span> <span class="pre">overscan</span> <span class="pre">reset</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="usb">
+<h2><span class="section-number">1.4. </span>关闭 USB 调试模式<a class="headerlink" href="#usb" title="永久链接至标题">¶</a></h2>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">put</span> <span class="pre">global</span> <span class="pre">adb_enabled</span> <span class="pre">0</span>
+<span class="pre">`</span></code></p>
+<p>恢复：</p>
+<p>用命令恢复不了了，毕竟关闭了 USB 调试 adb 就连接不上 Android 设备了。</p>
+<p>去设备上手动恢复吧：「设置」-「开发者选项」-「Android 调试」。</p>
+</div>
+<div class="section" id="sdk-api">
+<h2><span class="section-number">1.5. </span>允许/禁止访问非 SDK API<a class="headerlink" href="#sdk-api" title="永久链接至标题">¶</a></h2>
+<p>允许访问非 SDK API：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">put</span> <span class="pre">global</span> <span class="pre">hidden_api_policy_pre_p_apps</span> <span class="pre">1</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">put</span> <span class="pre">global</span> <span class="pre">hidden_api_policy_p_apps</span> <span class="pre">1</span>
+<span class="pre">`</span></code></p>
+<p>禁止访问非 SDK API：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">delete</span> <span class="pre">global</span> <span class="pre">hidden_api_policy_pre_p_apps</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">delete</span> <span class="pre">global</span> <span class="pre">hidden_api_policy_p_apps</span>
+<span class="pre">`</span></code></p>
+<p>不需要设备获得 Root 权限。</p>
+<p>命令最后的数字的含义：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 96%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>值</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>禁止检测非 SDK 接口的调用。该情况下，日志记录功能被禁用，并且令 strict mode API，即 detectNonSdkApiUsage() 无效。不推荐。</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>仅警告——允许访问所有非 SDK 接口，但保留日志中的警告信息，可继续使用 strick mode API。</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>禁止调用深灰名单和黑名单中的接口。</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>禁止调用黑名单中的接口，但允许调用深灰名单中的接口。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.6. </span>状态栏和导航栏的显示隐藏<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>本节所说的相关设置对应 Cyanogenmod 里的「扩展桌面」。</p>
+<p>命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">put</span> <span class="pre">global</span> <span class="pre">policy_control</span> <span class="pre">&lt;key-values&gt;</span>
+<span class="pre">`</span></code></p>
+<p><cite>&lt;key-values&gt;</cite> 可由如下几种键及其对应的值组成，格式为 <cite>&lt;key1&gt;=&lt;value1&gt;:&lt;key2&gt;=&lt;value2&gt;</cite>。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 66%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>key</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>immersive.full</p></td>
+<td><p>同时隐藏</p></td>
+</tr>
+<tr class="row-odd"><td><p>immersive.status</p></td>
+<td><p>隐藏状态栏</p></td>
+</tr>
+<tr class="row-even"><td><p>immersive.navigation</p></td>
+<td><p>隐藏导航栏</p></td>
+</tr>
+<tr class="row-odd"><td><p>immersive.preconfirms</p></td>
+<td><p>?</p></td>
+</tr>
+</tbody>
+</table>
+<p>这些键对应的值可则如下值用逗号组合：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 66%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>value</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>apps</cite></p></td>
+<td><p>所有应用</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>*</cite></p></td>
+<td><p>所有界面</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>packagename</cite></p></td>
+<td><p>指定应用</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>-packagename</cite></p></td>
+<td><p>排除指定应用</p></td>
+</tr>
+</tbody>
+</table>
+<p>例如：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">put</span> <span class="pre">global</span> <span class="pre">policy_control</span> <span class="pre">immersive.full=*</span>
+<span class="pre">`</span></code></p>
+<p>表示设置在所有界面下都同时隐藏状态栏和导航栏。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">adb</span> <span class="pre">shell</span> <span class="pre">settings</span> <span class="pre">put</span> <span class="pre">global</span> <span class="pre">policy_control</span> <span class="pre">immersive.status=com.package1,com.package2:immersive.navigation=apps,-com.package3</span>
+<span class="pre">`</span></code></p>
+<p>表示设置在包名为 <cite>com.package1</cite> 和 <cite>com.package2</cite> 的应用里隐藏状态栏，在除了包名为 <cite>com.package3</cite> 的所有应用里隐藏导航栏。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="查看日志.html" class="btn btn-neutral float-left" title="1. 查看日志" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, unity
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
