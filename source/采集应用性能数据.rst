@@ -1,0 +1,242 @@
+型号相关信息
+============
+
+不同的安卓版本获取数据指标会有不同
+
+关于获取硬件配置信息的数据请查看
+
+:doc:`查看设备信息` 
+
+
+采集应用性能数据
+============
+
+
+获取当前应用包名+activity名字
+------------------------------
+
+低版本
+
+```
+adb shell dumpsys window w |findstr \/ |findstr name
+```
+
+高版本
+
+```
+adb shell dumpsys window | findstr mCurrentFocus
+```
+
+获取当前应用消耗的cpu数据
+-----------------------
+
+命令格式 
+
+```
+adb shell top -n 1| findstr  包名
+```
+
+
+例：此命令为查看com.github.ui应用的cpu消耗
+
+```
+adb -s 3SLBB18528200035 shell top -n 1| findstr  com.github.ui
+```
+
+输出格式:
+
+```
+10391 u0_a111      10 -10 2.2G  57M  46M S  3.0   1.5   3:14.28 com.github.uiau+
+```
+
+查看所有程序运行的消耗
+
+```
+adb  shell top -n 1
+```
+
+输出格式
+
+.. code-block:: bash
+
+		?[?25l?[0m?[H?[J?[s?[999C?[999B?[6n?[uTasks: 598 total,   1 running, 587 sleeping,   0 stopped,   1 zombie
+		Mem:   3664584k total,  3620864k used,    43720k free,     2544k buffers
+		Swap:  2097148k total,   411260k used,  1685888k free,  1853376k cached
+		800%cpu  21%user   0%nice  26%sys 750%idle   0%iow   0%irq   3%sirq   0%host
+		?[7m  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS            ?[0m
+		 4573 shell        20   0  10M 2.3M 1.5M R 32.3   0.0   0:00.11 top -n 1
+		30975 root         20   0    0    0    0 S  2.9   0.0   0:09.33 [kworker/u16:5]
+		24509 root         20   0    0    0    0 S  2.9   0.0   0:38.74 [kworker/u16:3]
+		 1017 system       20   0  19M 1.6M 1.5M S  2.9   0.0  72:28.46 chargemonitor
+		 1001 root         20   0  67M  10M 3.6M S  2.9   0.2 203:30.21 hiview
+		  720 system       RT   0  58M 2.3M 1.9M S  2.9   0.0 970:40.05 vendor.huawei.h+
+		  529 root         20   0    0    0    0 S  2.9   0.0  19:14.24 [kauditd]
+		  499 root         20   0    0    0    0 S  2.9   0.0  68:45.62 [f2fs_discard-2+
+		 4487 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/4:0]
+		 3725 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/0:5]
+		 3675 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/5:2]
+		 2801 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/4:1]
+		 2745 root         20   0    0    0    0 S  0.0   0.0   0:00.03 [kworker/7:0]
+		 1931 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/5:1]
+		 1882 root          0 -20    0    0    0 S  0.0   0.0   0:00.00 [kworker/u17:0]
+		  582 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/0:3]
+		31468 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/7:1]
+		27385 system       20   0 2.1G  48M  37M S  0.0   1.3   0:00.58 com.huawei.hivi+
+		26686 root         20   0    0    0    0 S  0.0   0.0   0:00.04 [kworker/0:1]
+		?[?25h?[0m?[1000;1H?[K?[?25h?[0m?[1000;1H?[K0.0   0.0   0:00.01 [kworker/u17:4]
+
+
+
+
+
+
+==================================== ===================================================== 
+属性名                                 含义                                    
+==================================== ===================================================== 
+ ro.build.version.sdk                  SDK 版本                      
+ ro.build.version.release              Android 系统版本              
+ ro.build.version.security_patch       Android 安全补丁程序级别      
+ ro.product.model                      型号                          
+ ro.product.brand                      品牌                          
+ ro.product.name                       设备名                        
+ ro.product.board                      处理器型号                    
+ ro.product.cpu.abilist                CPU 支持的 abi 列表[*节注一*] 
+ persist.sys.isUsbOtgEnabled           是否支持 OTG                  
+ dalvik.vm.heapsize                    每个应用程序的内存上限        
+ ro.sf.lcd_density                     屏幕密度                                                                                                 
+==================================== ===================================================== 
+
+获取应用消耗的内存数据
+-------------------------
+
+命令：
+
+```
+adb shell dumpsys meminfo  com.github.uiautomator
+```
+
+输出
+
+.. code-block:: bash
+	
+	Applications Memory Usage (in Kilobytes):
+	Uptime: 2986442181 Realtime: 3040078023
+
+	** MEMINFO in pid 10391 [com.github.uiautomator] **
+	                   Pss  Private  Private  SwapPss     Heap     Heap     Heap
+	                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+	                ------   ------   ------   ------   ------   ------   ------
+	  Native Heap     3942     3908        0        0    14336     9395     4940
+	  Dalvik Heap     3496     3320       56        0    14109     1821    12288
+	 Dalvik Other     2028     2028        0      120
+	        Stack      244      244        0      148
+	       Ashmem        2        0        0        0
+	      Gfx dev     1540     1540        0        0
+	    Other dev        8        0        8        0
+	     .so mmap      963      152       20      250
+	    .apk mmap      435        0       64        0
+	    .ttf mmap        8        0        0        0
+	    .dex mmap     1813        0      568        4
+	    .oat mmap      462        0       76        0
+	    .art mmap     3817     3416       12     1052
+	   Other mmap        9        4        0        1
+	    GL mtrack     3572     3572        0        0
+	      Unknown      192      184        4      382
+	        TOTAL    24488    18368      808     1957    28445    11216    17228
+
+	 App Summary
+	                       Pss(KB)
+	                        ------
+	           Java Heap:     6748
+	         Native Heap:     3908
+	                Code:      880
+	               Stack:      244
+	            Graphics:     5112
+	       Private Other:     2284
+	              System:     5312
+
+	               TOTAL:    24488       TOTAL SWAP PSS:     1957
+
+	 Objects
+	               Views:       21         ViewRootImpl:        1
+	         AppContexts:        4           Activities:        1
+	              Assets:        4        AssetManagers:        3
+	       Local Binders:       21        Proxy Binders:       26
+	       Parcel memory:        5         Parcel count:       20
+	    Death Recipients:        0      OpenSSL Sockets:        0
+	            WebViews:        0
+
+	 SQL
+	         MEMORY_USED:        0
+	  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0
+
+
+解释下含义
+
+
+
+获取应用消耗的显示绘制数据
+-------------------------
+
+命令：
+
+```
+adb shell dumpsys gfxinfo  com.github.uiautomator
+```
+
+输出
+
+.. code-block:: bash
+	
+	Applications Graphics Acceleration Info:
+	Uptime: 2988543418 Realtime: 3042179260
+
+	** Graphics info for pid 10391 [com.github.uiautomator] **
+
+	Stats since: 2958727755602151ns
+	Total frames rendered: 1
+	Janky frames: 0 (0.00%)
+	50th percentile: 16ms
+	90th percentile: 16ms
+	95th percentile: 16ms
+	99th percentile: 16ms
+	Number Missed Vsync: 0
+	Number High input latency: 0
+	Number Slow UI thread: 0
+	Number Slow bitmap uploads: 0
+	Number Slow issue draw commands: 0
+	HISTOGRAM: 5ms=0 6ms=0 7ms=0 8ms=0 9ms=0 10ms=0 11ms=0 12ms=0 13ms=0 14ms=0 15ms=0 16ms=1 17ms=0 18ms=0 19ms=0 20ms=0 21ms=0 22ms=0 23ms=0 24ms=0 25ms=0 26ms=0 27ms=0 28ms=0 29ms=0 30ms=0 31ms=0 32ms=0 34ms=0 36ms=0 38ms=0 40ms=0 42ms=0 44ms=0 46ms=0 48ms=0 53ms=0
+	57ms=0 61ms=0 65ms=0 69ms=0 73ms=0 77ms=0 81ms=0 85ms=0 89ms=0 93ms=0 97ms=0 101ms=0 105ms=0 109ms=0 113ms=0 117ms=0 121ms=0 125ms=0 129ms=0 133ms=0 150ms=0 200ms=0 250ms=0 300ms=0 350ms=0 400ms=0 450ms=0 500ms=0 550ms=0 600ms=0 650ms=0 700ms=0 750ms=0 800ms=0 850m
+	s=0 900ms=0 950ms=0 1000ms=0 1050ms=0 1100ms=0 1150ms=0 1200ms=0 1250ms=0 1300ms=0 1350ms=0 1400ms=0 1450ms=0 1500ms=0 1550ms=0 1600ms=0 1650ms=0 1700ms=0 1750ms=0 1800ms=0 1850ms=0 1900ms=0 1950ms=0 2000ms=0 2050ms=0 2100ms=0 2150ms=0 2200ms=0 2250ms=0 2300ms=0 23
+	50ms=0 2400ms=0 2450ms=0 2500ms=0 2550ms=0 2600ms=0 2650ms=0 2700ms=0 2750ms=0 2800ms=0 2850ms=0 2900ms=0 2950ms=0 3000ms=0 3050ms=0 3100ms=0 3150ms=0 3200ms=0 3250ms=0 3300ms=0 3350ms=0 3400ms=0 3450ms=0 3500ms=0 3550ms=0 3600ms=0 3650ms=0 3700ms=0 3750ms=0 3800ms
+	=0 3850ms=0 3900ms=0 3950ms=0 4000ms=0 4050ms=0 4100ms=0 4150ms=0 4200ms=0 4250ms=0 4300ms=0 4350ms=0 4400ms=0 4450ms=0 4500ms=0 4550ms=0 4600ms=0 4650ms=0 4700ms=0 4750ms=0 4800ms=0 4850ms=0 4900ms=0 4950ms=0
+
+	Caches:
+	Current memory usage / total memory usage (bytes):
+	  TextureCache                0 / 75497472
+	  Layers total          0 (numLayers = 0)
+	  RenderBufferCache           0 /  8388608
+	  GradientCache               0 /  1048576
+	  PathCache                   0 / 33554432
+	  TessellationCache           0 /  1048576
+	  TextDropShadowCache         0 /  6291456
+	  PatchCache                  0 /        0
+	FontRenderer doesn't exist.
+	Other:
+	  FboCache                    0 /        2
+	Total memory usage:
+	  0 bytes, 0.00 MB
+
+
+	Pipeline=FrameBuilder
+	Profile data in ms:
+
+	View hierarchy:
+
+
+	Total ViewRootImpl: 0
+	Total Views:        0
+	Total DisplayList:  0.00 kB
+
+
+解释下含义

@@ -1,0 +1,41 @@
+安全相关命令
+============
+
+
+安全增强式Linux（SELinux，Security-Enhanced Linux）是一个Linux内核的安全模块，其提供了访问控制安全策略机制，
+包括了强制访问控制（Mandatory Access Control，MAC）。
+
+SELinux是一组内核修改和用户空间工具，已经被添加到各种Linux发行版中。其软件架构力图将安全决策的执行与安全策略分离，并简化涉及执行安全策略的软件的数量
+SELinux可以潜在地通过详细的参数来控制允许系统每个用户的活动、进程以及守护进程。但是，它主要用于限制守护进程比如被更显著定义数据访问和活动权限的数据库引擎或者网页服务器。这限制了被破解的限制守护进程的潜在危害。普通的用户进程通常运行于受限域中，不被SELinux所限制但被经典Linux访问权限所限制。
+
+启用/禁用 SELinux
+---------------------------
+启用 SELinux
+
+.. code-block:: bash
+	
+	adb root
+	adb shell setenforce 1
+
+禁用 SELinux
+
+.. code-block:: bash
+	
+	adb root
+	adb shell setenforce 0
+
+### 启用/禁用 dm_verity
+
+启用 dm_verity
+
+.. code-block:: bash
+	
+	adb root
+	adb enable-verity
+
+禁用 dm_verity
+
+.. code-block:: bash
+	
+	adb root
+	adb disable-verity

@@ -1,0 +1,282 @@
+常用功能
+===============================
+
+屏幕截图
+--------------------
+
+截图保存到电脑：
+
+```
+adb exec-out screencap -p > sc.png
+```
+
+如果 adb 版本较老，无法使用 `exec-out` 命令，这时候建议更新 adb 版本。无法更新的话可以使用以下麻烦点的办法：
+
+先截图保存到设备里：
+
+```
+adb shell screencap -p /sdcard/sc.png
+```
+
+然后将 png 文件导出到电脑：
+
+```
+adb pull /sdcard/sc.png
+```
+
+可以使用 `adb shell screencap -h` 查看 `screencap` 命令的帮助信息，下面是两个有意义的参数及含义：
+
+================ =========================================================== 
+ 参数             含义                                       
+================ =========================================================== 
+ -p              指定保存文件为 png 格式                    
+ -d display-id   指定截图的显示屏编号（有多显示屏的情况下） 
+================ =========================================================== 
+
+实测如果指定文件名以 `.png` 结尾时可以省略 -p 参数；否则需要使用 -p 参数。如果不指定文件名，截图文件的内容将直接输出到 stdout。
+
+另外一种一行命令截图并保存到电脑的方法：
+
+*Linux 和 Windows*
+
+```
+adb shell screencap -p | sed "s/\r$//" > sc.png
+```
+
+*Mac OS X*
+
+```
+adb shell screencap -p | gsed "s/\r$//" > sc.png
+```
+
+这个方法需要用到 gnu sed 命令，在 Linux 下直接就有，在 Windows 下 Git 安装目录的 bin 文件夹下也有。如果确实找不到该命令，可以下载 [sed for Windows](http://gnuwin32.sourceforge.net/packages/sed.htm) 并将 sed.exe 所在文件夹添加到 PATH 环境变量里。
+
+而在 Mac 下使用系统自带的 sed 命令会报错：
+
+```
+sed: RE error: illegal byte sequence
+```
+
+需要安装 gnu-sed，然后使用 gsed 命令：
+
+```
+brew install gnu-sed
+```
+
+录制屏幕
+--------------------
+
+录制屏幕以 mp4 格式保存到 /sdcard：
+
+```
+adb shell screenrecord /sdcard/filename.mp4
+```
+
+需要停止时按 <kbd>Ctrl-C</kbd>，默认录制时间和最长录制时间都是 180 秒。
+
+如果需要导出到电脑：
+
+```
+adb pull /sdcard/filename.mp4
+```
+
+可以使用 `adb shell screenrecord --help` 查看 `screenrecord` 命令的帮助信息，下面是常见参数及含义：
+
+======================= ==================================================== 
+ 参数                    含义                                            
+======================= ==================================================== 
+ --size WIDTHxHEIGHT     视频的尺寸，比如 `1280x720`，默认是屏幕分辨率。 
+ --bit-rate RATE         视频的比特率，默认是 4Mbps。                    
+ --time-limit TIME       录制时长，单位秒。                              
+ --verbose               输出更多信息。                                  
+======================= ==================================================== 
+
+
+重新挂载 system 分区为可写
+-------------------------
+
+**注：需要 root 权限。**
+
+/system 分区默认挂载为只读，但有些操作比如给 Android 系统添加命令、删除自带应用等需要对 /system 进行写操作，所以需要重新挂载它为可读写。
+
+步骤：
+
+1. 进入 shell 并切换到 root 用户权限。
+
+   命令：
+
+   ```
+   adb shell
+   su
+   ```
+
+2. 查看当前分区挂载情况。
+
+   命令：
+
+   ```
+   mount
+   ```
+
+   输出示例：
+
+.. code-block:: bash
+
+   		rootfs / rootfs ro,relatime 0 0
+   		tmpfs /dev tmpfs rw,seclabel,nosuid,relatime,mode=755 0 0
+   		devpts /dev/pts devpts rw,seclabel,relatime,mode=600 0 0
+   		proc /proc proc rw,relatime 0 0
+   		sysfs /sys sysfs rw,seclabel,relatime 0 0
+   		selinuxfs /sys/fs/selinux selinuxfs rw,relatime 0 0
+   		debugfs /sys/kernel/debug debugfs rw,relatime 0 0
+   		none /var tmpfs rw,seclabel,relatime,mode=770,gid=1000 0 0
+   		none /acct cgroup rw,relatime,cpuacct 0 0
+   		none /sys/fs/cgroup tmpfs rw,seclabel,relatime,mode=750,gid=1000 0 0
+   		none /sys/fs/cgroup/memory cgroup rw,relatime,memory 0 0
+   		tmpfs /mnt/asec tmpfs rw,seclabel,relatime,mode=755,gid=1000 0 0
+  		tmpfs /mnt/obb tmpfs rw,seclabel,relatime,mode=755,gid=1000 0 0
+   		none /dev/memcg cgroup rw,relatime,memory 0 0
+   		none /dev/cpuctl cgroup rw,relatime,cpu 0 0
+   		none /sys/fs/cgroup tmpfs rw,seclabel,relatime,mode=750,gid=1000 0 0
+   		none /sys/fs/cgroup/memory cgroup rw,relatime,memory 0 0
+   		none /sys/fs/cgroup/freezer cgroup rw,relatime,freezer 0 0
+   		/dev/block/platform/msm_sdcc.1/by-name/system /system ext4 ro,seclabel,relatime,data=ordered 0 0
+   		/dev/block/platform/msm_sdcc.1/by-name/userdata /data ext4 rw,seclabel,nosuid,nodev,relatime,noauto_da_alloc,data=ordered 0 0
+   		/dev/block/platform/msm_sdcc.1/by-name/cache /cache ext4 rw,seclabel,nosuid,nodev,relatime,data=ordered 0 0
+   		/dev/block/platform/msm_sdcc.1/by-name/persist /persist ext4 rw,seclabel,nosuid,nodev,relatime,data=ordered 0 0
+   		/dev/block/platform/msm_sdcc.1/by-name/modem /firmware vfat ro,context=u:object_r:firmware_file:s0,relatime,uid=1000,gid=1000,fmask=0337,dmask=0227,codepage=cp437,iocharset=iso8859-1,shortname=lower,errors=remount-ro 0 0
+   		/dev/fuse /mnt/shell/emulated fuse rw,nosuid,nodev,relatime,user_id=1023,group_id=1023,default_permissions,allow_other 0 0
+   		/dev/fuse /mnt/shell/emulated/0 fuse rw,nosuid,nodev,relatime,user_id=1023,group_id=1023,default_permissions,allow_other 0 0
+  
+
+   找到其中我们关注的带 /system 的那一行：
+
+   ```
+   /dev/block/platform/msm_sdcc.1/by-name/system /system ext4 ro,seclabel,relatime,data=ordered 0 0
+   ```
+
+3. 重新挂载。
+
+   命令：
+
+   ```
+   mount -o remount,rw -t yaffs2 /dev/block/platform/msm_sdcc.1/by-name/system /system
+   ```
+
+   这里的 `/dev/block/platform/msm_sdcc.1/by-name/system` 就是我们从上一步的输出里得到的文件路径。
+
+如果输出没有提示错误的话，操作就成功了，可以对 /system 下的文件为所欲为了。
+
+查看连接过的 WiFi 密码
+-------------------------
+
+**注：需要 root 权限。**
+
+命令：
+
+.. code-block:: bash
+	
+	adb shell
+	su
+	cat /data/misc/wifi/*.conf
+
+输出示例：
+
+.. code-block:: bash
+	
+	network={
+	ssid="TP-LINK_9DFC"
+	scan_ssid=1
+	psk="123456789"
+	key_mgmt=WPA-PSK
+	group=CCMP TKIP
+	auth_alg=OPEN
+	sim_num=1
+	priority=13893
+			}
+
+	network={
+		ssid="TP-LINK_F11E"
+		psk="987654321"
+		key_mgmt=WPA-PSK
+		sim_num=1
+		priority=17293
+	}
+
+
+
+
+`ssid` 即为我们在 WLAN 设置里看到的名称，`psk` 为密码，`key_mgmt` 为安全加密方式。
+
+设置系统日期和时间
+-------------------------
+**注：需要 root 权限。**
+
+命令：
+.. code-block:: bash
+
+	adb shell
+	su
+	date -s 20160823.131500
+
+表示将系统日期和时间更改为 2016 年 08 月 23 日 13 点 15 分 00 秒。
+
+重启手机
+-------------------------
+
+命令：
+
+```
+adb reboot
+```
+
+检测设备是否已 root
+-------------------------
+
+命令：
+.. code-block:: bash
+
+	adb shell
+	su
+
+
+此时命令行提示符是 `$` 则表示没有 root 权限，是 `#` 则表示已 root。
+
+使用 Monkey 进行压力测试
+-------------------------
+
+Monkey 可以生成伪随机用户事件来模拟单击、触摸、手势等操作，可以对正在开发中的程序进行随机压力测试。
+
+简单用法：
+
+```
+adb shell monkey -p <packagename> -v 500
+```
+
+表示向 `<packagename>` 指定的应用程序发送 500 个伪随机事件。
+
+Monkey 的详细用法参考 [官方文档](https://developer.android.com/studio/test/monkey.html)。
+
+开启/关闭 WiFi
+-------------------------
+**注：需要 root 权限。**
+
+有时需要控制设备的 WiFi 状态，可以用以下指令完成。
+
+开启 WiFi：
+
+.. code-block:: bash
+
+	adb root
+	adb shell svc wifi enable
+
+
+关闭 WiFi：
+
+.. code-block:: bash
+
+	adb root
+	adb shell svc wifi disable
+
+
+若执行成功，输出为空；若未取得 root 权限执行此命令，将执行失败，输出 `Killed`。
