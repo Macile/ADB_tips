@@ -24,6 +24,8 @@ author = 'unity'
 # The full version, including alpha/beta/rc tags
 release = '123456'
 
+master_doc  =  'index'
+
 
 # -- General configuration ---------------------------------------------------
 
